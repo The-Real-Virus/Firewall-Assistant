@@ -2,7 +2,7 @@
 
 Firewall Assistant helps you investigate why a Windows application cannot connect. The desktop application and administrator CLI share one diagnostic engine. Evidence collection, analysis, reports, and the sample case work offline. The optional AI Assistant starts off and can explain findings and carry out supported application actions after you connect a provider.
 
-[User handbook](Documentation.docx) · [Rebuild from source](Docs/REBUILD.md) · [CLI reference](Docs/cli.md) · [Releases](https://github.com/random4web/Firewall-Assistant/releases)
+[User handbook](Documentation.docx) · [Rebuild from source](Docs/REBUILD.md) · [CLI reference](Docs/cli.md) · [Releases](https://github.com/The-Real-Virus/Firewall-Assistant/releases)
 
 ## Repository layout
 
