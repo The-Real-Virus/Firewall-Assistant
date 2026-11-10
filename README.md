@@ -50,13 +50,19 @@ Use an invented example or sanitized summary for bugs. Include the app version, 
 
 ## VISUAL APPLICATION  
 
-![1](Images\overview.png)  
-![2](Images\diagnose.png)  
-![3](Images\cases.png)  
-![4](Images\compare.png)  
-![5](Images\settings.png)  
-![6](Images\ai1.png)  
-![7](Images\ai2.png)  
+![1](Images/overview.png)
+
+![2](Images/diagnose.png)
+
+![3](Images/cases.png)
+
+![4](Images/compare.png)
+
+![5](Images/settings.png)
+
+![6](Images/ai1.png)
+
+![7](Images/ai2.png)
 
 ---
 
