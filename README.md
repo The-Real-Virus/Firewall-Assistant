@@ -48,6 +48,18 @@ The rebuild guide walks through the required Windows and Python setup, copying t
 
 Use an invented example or sanitized summary for bugs. Include the app version, Windows build, and steps to reproduce. Use the private reporting instructions for security findings and keep raw evidence and credentials in your local workspace. [Contributing](Docs/CONTRIBUTING.md) · [Security reporting](Docs/SECURITY.md) · [Troubleshooting](Docs/troubleshooting.md) · [Changelog](Docs/CHANGELOG.md)
 
+## VISUAL APPLICATION  
+
+![1](Images\overview.png)  
+![2](Images\diagnose.png)  
+![3](Images\cases.png)  
+![4](Images\compare.png)  
+![5](Images\settings.png)  
+![6](Images\ai1.png)  
+![7](Images\ai2.png)  
+
+---
+
 > [!IMPORTANT]
 > Most of the project is build with AI, You can check the complete source code & Documentations. It is Tested and Safe To Use.
 
