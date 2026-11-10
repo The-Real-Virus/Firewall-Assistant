@@ -1,0 +1,17 @@
+usage: wfdiag [-h] [--version]
+              {doctor,collect,analyze,report,propose,compare} ...
+
+Local Windows Firewall evidence diagnostics. Never applies firewall changes.
+
+positional arguments:
+  {doctor,collect,analyze,report,propose,compare}
+    doctor              Check platform and evidence capabilities
+    collect             Read a bounded local evidence window
+    analyze             Analyze a validated case offline
+    report              Export a static offline report
+    propose             Export an eligible JSON review proposal
+    compare             Compare completed analyses and uncertainty
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit

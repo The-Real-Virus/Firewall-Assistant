@@ -1,0 +1,792 @@
+{
+  "$defs": {
+    "Category": {
+      "enum": [
+        "EXPLICIT_BLOCK",
+        "DEFAULT_BLOCK",
+        "PROFILE_MISMATCH",
+        "LOCAL_RULE_MERGE_RESTRICTED",
+        "UNRESOLVED_WFP_BLOCK",
+        "EVIDENCE_GAP",
+        "NO_RELEVANT_EVENT"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "Completeness": {
+      "enum": [
+        "complete",
+        "incomplete"
+      ],
+      "title": "Completeness",
+      "type": "string"
+    },
+    "Direction": {
+      "enum": [
+        "inbound",
+        "outbound",
+        "unknown"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "FindingCount": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "$ref": "#/$defs/Category"
+        },
+        "count": {
+          "maximum": 100002,
+          "minimum": 0,
+          "title": "Count",
+          "type": "integer"
+        },
+        "relevance": {
+          "$ref": "#/$defs/Relevance"
+        }
+      },
+      "required": [
+        "category",
+        "relevance",
+        "count"
+      ],
+      "title": "FindingCount",
+      "type": "object"
+    },
+    "FirewallProfile": {
+      "additionalProperties": false,
+      "properties": {
+        "active": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Active"
+        },
+        "allow_local_rule_merge": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Allow Local Rule Merge"
+        },
+        "default_inbound": {
+          "enum": [
+            "Allow",
+            "Block",
+            "unknown"
+          ],
+          "title": "Default Inbound",
+          "type": "string"
+        },
+        "default_outbound": {
+          "enum": [
+            "Allow",
+            "Block",
+            "unknown"
+          ],
+          "title": "Default Outbound",
+          "type": "string"
+        },
+        "enabled": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Enabled"
+        },
+        "policy_source": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Policy Source"
+        },
+        "policy_source_type": {
+          "default": "unknown",
+          "enum": [
+            "local",
+            "GPO",
+            "MDM",
+            "other",
+            "unknown"
+          ],
+          "title": "Policy Source Type",
+          "type": "string"
+        },
+        "profile": {
+          "$ref": "#/$defs/Profile"
+        },
+        "source_ref": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Source Ref",
+          "type": "string"
+        }
+      },
+      "required": [
+        "profile",
+        "enabled",
+        "active",
+        "default_inbound",
+        "default_outbound",
+        "allow_local_rule_merge",
+        "source_ref"
+      ],
+      "title": "FirewallProfile",
+      "type": "object"
+    },
+    "PolicyConditions": {
+      "additionalProperties": false,
+      "description": "Null means unknown, while an empty tuple means a real empty captured condition.",
+      "properties": {
+        "interface_types": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Interface Types"
+        },
+        "interfaces": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Interfaces"
+        },
+        "local_addresses": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Local Addresses"
+        },
+        "local_ports": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Local Ports"
+        },
+        "programs": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Programs"
+        },
+        "protocols": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Protocols"
+        },
+        "remote_addresses": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Remote Addresses"
+        },
+        "remote_ports": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Remote Ports"
+        },
+        "security": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Security"
+        },
+        "services": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Services"
+        }
+      },
+      "required": [
+        "programs",
+        "protocols",
+        "local_ports",
+        "remote_ports",
+        "local_addresses",
+        "remote_addresses",
+        "services",
+        "interfaces",
+        "interface_types",
+        "security"
+      ],
+      "title": "PolicyConditions",
+      "type": "object"
+    },
+    "Profile": {
+      "enum": [
+        "Domain",
+        "Private",
+        "Public"
+      ],
+      "title": "Profile",
+      "type": "string"
+    },
+    "ProfileChange": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FirewallProfile"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "before": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FirewallProfile"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "profile": {
+          "$ref": "#/$defs/Profile"
+        }
+      },
+      "required": [
+        "profile",
+        "before",
+        "after"
+      ],
+      "title": "ProfileChange",
+      "type": "object"
+    },
+    "Relevance": {
+      "enum": [
+        "relevant",
+        "unrelated",
+        "unknown"
+      ],
+      "title": "Relevance",
+      "type": "string"
+    },
+    "Rule": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "enum": [
+            "Allow",
+            "Block",
+            "unknown"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "conditions": {
+          "$ref": "#/$defs/PolicyConditions"
+        },
+        "direction": {
+          "$ref": "#/$defs/Direction"
+        },
+        "display_name": {
+          "maxLength": 500,
+          "title": "Display Name",
+          "type": "string"
+        },
+        "enabled": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Enabled"
+        },
+        "filter_errors": {
+          "default": [],
+          "items": {
+            "maxLength": 500,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Filter Errors",
+          "type": "array"
+        },
+        "policy_source": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Policy Source"
+        },
+        "policy_source_type": {
+          "enum": [
+            "local",
+            "GPO",
+            "MDM",
+            "other",
+            "unknown"
+          ],
+          "title": "Policy Source Type",
+          "type": "string"
+        },
+        "profiles": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/Profile"
+              },
+              "maxItems": 3,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Profiles"
+        },
+        "rule_id": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Rule Id",
+          "type": "string"
+        },
+        "snapshot_utc": {
+          "format": "date-time",
+          "title": "Snapshot Utc",
+          "type": "string"
+        },
+        "source_ref": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Source Ref",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule_id",
+        "display_name",
+        "enabled",
+        "action",
+        "direction",
+        "profiles",
+        "policy_source",
+        "policy_source_type",
+        "snapshot_utc",
+        "conditions",
+        "source_ref"
+      ],
+      "title": "Rule",
+      "type": "object"
+    },
+    "RuleChange": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Rule"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "before": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Rule"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "change": {
+          "enum": [
+            "added",
+            "removed",
+            "changed"
+          ],
+          "title": "Change",
+          "type": "string"
+        },
+        "changed_fields": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Changed Fields",
+          "type": "array"
+        },
+        "rule_id": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Rule Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule_id",
+        "change",
+        "changed_fields",
+        "before",
+        "after"
+      ],
+      "title": "RuleChange",
+      "type": "object"
+    },
+    "SourceState": {
+      "enum": [
+        "complete",
+        "empty",
+        "unavailable",
+        "access_denied",
+        "error",
+        "truncated",
+        "cancelled",
+        "unsupported"
+      ],
+      "title": "SourceState",
+      "type": "string"
+    },
+    "SourceStatus": {
+      "additionalProperties": false,
+      "properties": {
+        "records": {
+          "default": 0,
+          "maximum": 100000,
+          "minimum": 0,
+          "title": "Records",
+          "type": "integer"
+        },
+        "source": {
+          "enum": [
+            "host",
+            "profiles",
+            "rules",
+            "events",
+            "collection-errors",
+            "network",
+            "firewall-log"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/SourceState"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "maxLength": 500,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Warnings",
+          "type": "array"
+        },
+        "window_end_utc": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Window End Utc"
+        },
+        "window_start_utc": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Window Start Utc"
+        }
+      },
+      "required": [
+        "source",
+        "state",
+        "window_start_utc",
+        "window_end_utc"
+      ],
+      "title": "SourceStatus",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "after_analyzed_at_utc": {
+      "format": "date-time",
+      "title": "After Analyzed At Utc",
+      "type": "string"
+    },
+    "after_completeness": {
+      "$ref": "#/$defs/Completeness"
+    },
+    "after_counts": {
+      "items": {
+        "$ref": "#/$defs/FindingCount"
+      },
+      "maxItems": 21,
+      "title": "After Counts",
+      "type": "array"
+    },
+    "after_run_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "After Run Id",
+      "type": "string"
+    },
+    "after_sources": {
+      "items": {
+        "$ref": "#/$defs/SourceStatus"
+      },
+      "title": "After Sources",
+      "type": "array"
+    },
+    "before_analyzed_at_utc": {
+      "format": "date-time",
+      "title": "Before Analyzed At Utc",
+      "type": "string"
+    },
+    "before_completeness": {
+      "$ref": "#/$defs/Completeness"
+    },
+    "before_counts": {
+      "items": {
+        "$ref": "#/$defs/FindingCount"
+      },
+      "maxItems": 21,
+      "title": "Before Counts",
+      "type": "array"
+    },
+    "before_run_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Before Run Id",
+      "type": "string"
+    },
+    "before_sources": {
+      "items": {
+        "$ref": "#/$defs/SourceStatus"
+      },
+      "title": "Before Sources",
+      "type": "array"
+    },
+    "conclusion": {
+      "const": "This compares captured observations and policy. A later absence of relevant events does not prove repair.",
+      "default": "This compares captured observations and policy. A later absence of relevant events does not prove repair.",
+      "title": "Conclusion",
+      "type": "string"
+    },
+    "observation_change": {
+      "enum": [
+        "changed",
+        "unchanged",
+        "not_observed",
+        "unknown"
+      ],
+      "title": "Observation Change",
+      "type": "string"
+    },
+    "policy_comparison": {
+      "enum": [
+        "available",
+        "unavailable"
+      ],
+      "title": "Policy Comparison",
+      "type": "string"
+    },
+    "profile_changes": {
+      "items": {
+        "$ref": "#/$defs/ProfileChange"
+      },
+      "maxItems": 3,
+      "title": "Profile Changes",
+      "type": "array"
+    },
+    "repair_status": {
+      "const": "not_established",
+      "default": "not_established",
+      "title": "Repair Status",
+      "type": "string"
+    },
+    "rule_changes": {
+      "items": {
+        "$ref": "#/$defs/RuleChange"
+      },
+      "maxItems": 20000,
+      "title": "Rule Changes",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "warnings": {
+      "items": {
+        "maxLength": 128,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "before_run_id",
+    "after_run_id",
+    "before_analyzed_at_utc",
+    "after_analyzed_at_utc",
+    "before_completeness",
+    "after_completeness",
+    "before_sources",
+    "after_sources",
+    "before_counts",
+    "after_counts",
+    "observation_change",
+    "policy_comparison",
+    "rule_changes",
+    "profile_changes",
+    "warnings"
+  ],
+  "title": "Comparison",
+  "type": "object"
+}

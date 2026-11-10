@@ -1,0 +1,14 @@
+include README.md
+include .gitignore .gitattributes .editorconfig requirements*.txt
+recursive-include scripts *.py *.ps1
+recursive-include packaging *.py *.spec *.manifest *.md
+recursive-include docs *.md *.json *.docx
+recursive-include examples *.json *.ndjson *.html *.txt
+recursive-include tests *.py *.json *.ndjson *.xml *.txt *.ps1
+prune .build
+prune .venv
+prune .venv-lockcheck
+prune release-local
+prune dist
+prune build
+global-exclude *.pyc *.pfx *.p12 *.key *.evtx .env .env.*

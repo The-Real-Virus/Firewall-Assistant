@@ -1,0 +1,130 @@
+{
+  "$defs": {
+    "Profile": {
+      "enum": [
+        "Domain",
+        "Private",
+        "Public"
+      ],
+      "title": "Profile",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "const": "Allow",
+      "default": "Allow",
+      "title": "Action",
+      "type": "string"
+    },
+    "assumptions": {
+      "items": {
+        "maxLength": 500,
+        "type": "string"
+      },
+      "maxItems": 50,
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "change_request_description": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Change Request Description",
+      "type": "string"
+    },
+    "direction": {
+      "enum": [
+        "inbound",
+        "outbound"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "maxLength": 128,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "executable": {
+      "const": false,
+      "default": false,
+      "title": "Executable",
+      "type": "boolean"
+    },
+    "finding_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Finding Id",
+      "type": "string"
+    },
+    "peer_scope": {
+      "items": {
+        "maxLength": 80,
+        "minLength": 2,
+        "type": "string"
+      },
+      "maxItems": 16,
+      "minItems": 1,
+      "title": "Peer Scope",
+      "type": "array"
+    },
+    "profile": {
+      "$ref": "#/$defs/Profile"
+    },
+    "program": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "title": "Program",
+      "type": "string"
+    },
+    "protocol": {
+      "const": "TCP",
+      "default": "TCP",
+      "title": "Protocol",
+      "type": "string"
+    },
+    "review_steps": {
+      "items": {
+        "maxLength": 500,
+        "type": "string"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "title": "Review Steps",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "service_port": {
+      "maximum": 65535,
+      "minimum": 1,
+      "title": "Service Port",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "finding_id",
+    "direction",
+    "program",
+    "service_port",
+    "peer_scope",
+    "profile",
+    "evidence_refs",
+    "assumptions",
+    "review_steps",
+    "change_request_description"
+  ],
+  "title": "Proposal",
+  "type": "object"
+}

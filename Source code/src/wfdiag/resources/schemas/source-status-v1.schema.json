@@ -1,0 +1,86 @@
+{
+  "$defs": {
+    "SourceState": {
+      "enum": [
+        "complete",
+        "empty",
+        "unavailable",
+        "access_denied",
+        "error",
+        "truncated",
+        "cancelled",
+        "unsupported"
+      ],
+      "title": "SourceState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "records": {
+      "default": 0,
+      "maximum": 100000,
+      "minimum": 0,
+      "title": "Records",
+      "type": "integer"
+    },
+    "source": {
+      "enum": [
+        "host",
+        "profiles",
+        "rules",
+        "events",
+        "collection-errors",
+        "network",
+        "firewall-log"
+      ],
+      "title": "Source",
+      "type": "string"
+    },
+    "state": {
+      "$ref": "#/$defs/SourceState"
+    },
+    "warnings": {
+      "default": [],
+      "items": {
+        "maxLength": 500,
+        "type": "string"
+      },
+      "maxItems": 100,
+      "title": "Warnings",
+      "type": "array"
+    },
+    "window_end_utc": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Window End Utc"
+    },
+    "window_start_utc": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Window Start Utc"
+    }
+  },
+  "required": [
+    "source",
+    "state",
+    "window_start_utc",
+    "window_end_utc"
+  ],
+  "title": "SourceStatus",
+  "type": "object"
+}

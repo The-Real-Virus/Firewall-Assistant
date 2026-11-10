@@ -1,0 +1,227 @@
+{
+  "$defs": {
+    "Category": {
+      "enum": [
+        "EXPLICIT_BLOCK",
+        "DEFAULT_BLOCK",
+        "PROFILE_MISMATCH",
+        "LOCAL_RULE_MERGE_RESTRICTED",
+        "UNRESOLVED_WFP_BLOCK",
+        "EVIDENCE_GAP",
+        "NO_RELEVANT_EVENT"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "Completeness": {
+      "enum": [
+        "complete",
+        "incomplete"
+      ],
+      "title": "Completeness",
+      "type": "string"
+    },
+    "EvidenceGrade": {
+      "enum": [
+        "confirmed",
+        "supported",
+        "unknown"
+      ],
+      "title": "EvidenceGrade",
+      "type": "string"
+    },
+    "NextStep": {
+      "enum": [
+        "VERIFY_INTENT",
+        "REVIEW_POLICY_OWNER",
+        "COLLECT_APPROVED_EVIDENCE",
+        "REVIEW_WINDOW",
+        "REVIEW_LIMITATIONS",
+        "GLOSSARY_PROFILE",
+        "GLOSSARY_AUDITING"
+      ],
+      "title": "NextStep",
+      "type": "string"
+    },
+    "Relevance": {
+      "enum": [
+        "relevant",
+        "unrelated",
+        "unknown"
+      ],
+      "title": "Relevance",
+      "type": "string"
+    },
+    "ShareFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "$ref": "#/$defs/Category"
+        },
+        "evidence_aliases": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Evidence Aliases",
+          "type": "array"
+        },
+        "evidence_grade": {
+          "$ref": "#/$defs/EvidenceGrade"
+        },
+        "finding_alias": {
+          "pattern": "^F[0-9a-f]{16}$",
+          "title": "Finding Alias",
+          "type": "string"
+        },
+        "next_steps": {
+          "items": {
+            "$ref": "#/$defs/NextStep"
+          },
+          "title": "Next Steps",
+          "type": "array"
+        },
+        "proposal_eligible": {
+          "title": "Proposal Eligible",
+          "type": "boolean"
+        },
+        "refusal_codes": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 50,
+          "title": "Refusal Codes",
+          "type": "array"
+        },
+        "relevance": {
+          "$ref": "#/$defs/Relevance"
+        }
+      },
+      "required": [
+        "finding_alias",
+        "category",
+        "evidence_grade",
+        "relevance",
+        "proposal_eligible",
+        "evidence_aliases",
+        "refusal_codes",
+        "next_steps"
+      ],
+      "title": "ShareFinding",
+      "type": "object"
+    },
+    "ShareSource": {
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "enum": [
+            "host",
+            "profiles",
+            "rules",
+            "events",
+            "collection-errors",
+            "network",
+            "firewall-log"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/SourceState"
+        },
+        "warnings_present": {
+          "title": "Warnings Present",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "source",
+        "state",
+        "warnings_present"
+      ],
+      "title": "ShareSource",
+      "type": "object"
+    },
+    "SourceState": {
+      "enum": [
+        "complete",
+        "empty",
+        "unavailable",
+        "access_denied",
+        "error",
+        "truncated",
+        "cancelled",
+        "unsupported"
+      ],
+      "title": "SourceState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "completeness": {
+      "$ref": "#/$defs/Completeness"
+    },
+    "excluded": {
+      "default": [
+        "Raw evidence",
+        "Full paths, application and machine identity",
+        "Exact addresses and timestamps",
+        "Rule identities and source references",
+        "Operator purpose and all other free text",
+        "Reverse pseudonym map"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "title": "Excluded",
+      "type": "array"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/ShareFinding"
+      },
+      "maxItems": 100002,
+      "title": "Findings",
+      "type": "array"
+    },
+    "mode": {
+      "const": "share",
+      "default": "share",
+      "title": "Mode",
+      "type": "string"
+    },
+    "report_id": {
+      "pattern": "^R[0-9a-f]{32}$",
+      "title": "Report Id",
+      "type": "string"
+    },
+    "review_required": {
+      "const": true,
+      "default": true,
+      "title": "Review Required",
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/ShareSource"
+      },
+      "title": "Sources",
+      "type": "array"
+    }
+  },
+  "required": [
+    "report_id",
+    "completeness",
+    "sources",
+    "findings"
+  ],
+  "title": "ShareReport",
+  "type": "object"
+}

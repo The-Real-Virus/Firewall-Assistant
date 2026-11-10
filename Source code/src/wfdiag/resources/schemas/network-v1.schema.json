@@ -1,0 +1,109 @@
+{
+  "$defs": {
+    "NetworkInterface": {
+      "additionalProperties": false,
+      "properties": {
+        "active_profile": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Profile"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "addresses": {
+          "items": {
+            "maxLength": 64,
+            "minLength": 2,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Addresses",
+          "type": "array"
+        },
+        "interface_index": {
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Interface Index",
+          "type": "integer"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Name"
+        },
+        "source_ref": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Source Ref",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "up",
+            "down",
+            "unknown"
+          ],
+          "title": "State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "interface_index",
+        "name",
+        "addresses",
+        "active_profile",
+        "state",
+        "source_ref"
+      ],
+      "title": "NetworkInterface",
+      "type": "object"
+    },
+    "Profile": {
+      "enum": [
+        "Domain",
+        "Private",
+        "Public"
+      ],
+      "title": "Profile",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "interfaces": {
+      "items": {
+        "$ref": "#/$defs/NetworkInterface"
+      },
+      "maxItems": 512,
+      "title": "Interfaces",
+      "type": "array"
+    },
+    "observed_at_utc": {
+      "format": "date-time",
+      "title": "Observed At Utc",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "observed_at_utc",
+    "interfaces"
+  ],
+  "title": "NetworkSnapshot",
+  "type": "object"
+}

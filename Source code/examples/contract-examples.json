@@ -1,0 +1,300 @@
+{
+  "synthetic": true,
+  "purpose": "Independent schema examples; not a case directory, engine result, or apply instruction",
+  "records": {
+    "host": {
+      "schema_version": "1.0",
+      "os": "windows",
+      "edition": "Synthetic training edition",
+      "build": "synthetic-not-a-tested-build",
+      "architecture": "x64",
+      "supported_build": false,
+      "hostname": null
+    },
+    "intent": {
+      "schema_version": "1.0",
+      "application_path": "C:\\Training\\ExampleApp.exe",
+      "application_identity_confirmed": false,
+      "direction": "inbound",
+      "protocol": "TCP",
+      "profile": "Private",
+      "remote_addresses": [
+        "192.168.56.20/32"
+      ],
+      "local_port": 8765,
+      "remote_port": null,
+      "purpose": "Synthetic training values, replace with independently approved requirements"
+    },
+    "manifest": {
+      "schema_version": "1.0",
+      "run_id": "synthetic-contract-only",
+      "collector_version": "1.0.0rc1",
+      "collected_at_utc": "2026-11-01T00:10:00Z",
+      "host": {
+        "schema_version": "1.0",
+        "os": "windows",
+        "edition": "Synthetic training edition",
+        "build": "synthetic-not-a-tested-build",
+        "architecture": "x64",
+        "supported_build": false,
+        "hostname": null
+      },
+      "completeness": "complete",
+      "sources": [
+        {
+          "source": "host",
+          "state": "complete",
+          "window_start_utc": "2026-11-01T00:00:00Z",
+          "window_end_utc": "2026-11-01T00:10:00Z",
+          "records": 0,
+          "warnings": []
+        },
+        {
+          "source": "profiles",
+          "state": "complete",
+          "window_start_utc": "2026-11-01T00:00:00Z",
+          "window_end_utc": "2026-11-01T00:10:00Z",
+          "records": 0,
+          "warnings": []
+        },
+        {
+          "source": "rules",
+          "state": "complete",
+          "window_start_utc": "2026-11-01T00:00:00Z",
+          "window_end_utc": "2026-11-01T00:10:00Z",
+          "records": 0,
+          "warnings": []
+        },
+        {
+          "source": "events",
+          "state": "empty",
+          "window_start_utc": "2026-11-01T00:00:00Z",
+          "window_end_utc": "2026-11-01T00:10:00Z",
+          "records": 0,
+          "warnings": []
+        },
+        {
+          "source": "collection-errors",
+          "state": "complete",
+          "window_start_utc": "2026-11-01T00:00:00Z",
+          "window_end_utc": "2026-11-01T00:10:00Z",
+          "records": 0,
+          "warnings": []
+        }
+      ],
+      "files": [
+        {
+          "filename": "host.json",
+          "byte_length": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "filename": "profiles.json",
+          "byte_length": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "filename": "rules.json",
+          "byte_length": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "filename": "events.ndjson",
+          "byte_length": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "filename": "collection-errors.json",
+          "byte_length": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    "event": {
+      "schema_version": "1.0",
+      "event_id": 5157,
+      "provider": "Microsoft-Windows-Security-Auditing",
+      "record_id": 1,
+      "event_version": 1,
+      "timestamp_utc": "2026-11-01T00:05:00Z",
+      "application_raw": "\\Device\\SyntheticVolume\\Training\\ExampleApp.exe",
+      "application_canonical": null,
+      "pid_raw": "0x1234",
+      "pid_value": 4660,
+      "direction": "inbound",
+      "source_address": "192.168.56.20",
+      "source_port": 51000,
+      "destination_address": "192.168.56.10",
+      "destination_port": 8765,
+      "protocol": 6,
+      "filter_runtime_id": null,
+      "filter_origin": null,
+      "interface_index": null,
+      "source_ref": "events:1",
+      "warnings": [
+        "Synthetic identity remains unresolved"
+      ],
+      "unknown_fields": {}
+    },
+    "rule": {
+      "rule_id": "synthetic-rule-1",
+      "display_name": "Synthetic block",
+      "enabled": true,
+      "action": "Block",
+      "direction": "inbound",
+      "profiles": [
+        "Private"
+      ],
+      "policy_source": "synthetic-local",
+      "policy_source_type": "local",
+      "snapshot_utc": "2026-11-01T00:10:00Z",
+      "conditions": {
+        "programs": [
+          "C:\\Training\\ExampleApp.exe"
+        ],
+        "protocols": [
+          "TCP"
+        ],
+        "local_ports": [
+          "8765"
+        ],
+        "remote_ports": [
+          "Any"
+        ],
+        "local_addresses": [
+          "Any"
+        ],
+        "remote_addresses": [
+          "192.168.56.20"
+        ],
+        "services": [
+          "Any"
+        ],
+        "interfaces": [
+          "Any"
+        ],
+        "interface_types": [
+          "Any"
+        ],
+        "security": [
+          "None"
+        ]
+      },
+      "filter_errors": [],
+      "source_ref": "rules:synthetic-rule-1"
+    },
+    "analysis": {
+      "schema_version": "1.0",
+      "run_id": "synthetic-contract-only",
+      "engine_version": "1.0.0rc1",
+      "analyzed_at_utc": "2026-11-01T00:11:00Z",
+      "completeness": "complete",
+      "sources": [
+        {
+          "source": "host",
+          "state": "complete",
+          "window_start_utc": "2026-11-01T00:00:00Z",
+          "window_end_utc": "2026-11-01T00:10:00Z",
+          "records": 0,
+          "warnings": []
+        },
+        {
+          "source": "profiles",
+          "state": "complete",
+          "window_start_utc": "2026-11-01T00:00:00Z",
+          "window_end_utc": "2026-11-01T00:10:00Z",
+          "records": 0,
+          "warnings": []
+        },
+        {
+          "source": "rules",
+          "state": "complete",
+          "window_start_utc": "2026-11-01T00:00:00Z",
+          "window_end_utc": "2026-11-01T00:10:00Z",
+          "records": 0,
+          "warnings": []
+        },
+        {
+          "source": "events",
+          "state": "empty",
+          "window_start_utc": "2026-11-01T00:00:00Z",
+          "window_end_utc": "2026-11-01T00:10:00Z",
+          "records": 0,
+          "warnings": []
+        },
+        {
+          "source": "collection-errors",
+          "state": "complete",
+          "window_start_utc": "2026-11-01T00:00:00Z",
+          "window_end_utc": "2026-11-01T00:10:00Z",
+          "records": 0,
+          "warnings": []
+        }
+      ],
+      "findings": [
+        {
+          "finding_id": "F001",
+          "category": "UNRESOLVED_WFP_BLOCK",
+          "evidence_grade": "unknown",
+          "summary": "Synthetic unresolved identity",
+          "observation": "Schema illustration only; no diagnostic engine produced this record.",
+          "evidence_refs": [
+            "events:1"
+          ],
+          "candidate_rules": [],
+          "policy_snapshot_utc": "2026-11-01T00:10:00Z",
+          "relevance": "unknown",
+          "limitations": [
+            "Synthetic unresolved identity"
+          ],
+          "alternative_explanations": [],
+          "next_steps": [
+            "REVIEW_LIMITATIONS"
+          ],
+          "proposal_eligible": false,
+          "refusal_codes": [
+            "UNRESOLVED_IDENTITY"
+          ]
+        }
+      ],
+      "intent": {
+        "schema_version": "1.0",
+        "application_path": "C:\\Training\\ExampleApp.exe",
+        "application_identity_confirmed": false,
+        "direction": "inbound",
+        "protocol": "TCP",
+        "profile": "Private",
+        "remote_addresses": [
+          "192.168.56.20/32"
+        ],
+        "local_port": 8765,
+        "remote_port": null,
+        "purpose": "Synthetic training values, replace with independently approved requirements"
+      }
+    },
+    "proposal": {
+      "schema_version": "1.0",
+      "executable": false,
+      "action": "Allow",
+      "finding_id": "SCHEMA-EXAMPLE-ONLY",
+      "direction": "inbound",
+      "program": "C:\\Training\\ExampleApp.exe",
+      "protocol": "TCP",
+      "service_port": 8765,
+      "peer_scope": [
+        "192.168.56.20/32"
+      ],
+      "profile": "Private",
+      "evidence_refs": [
+        "SCHEMA-EXAMPLE-ONLY"
+      ],
+      "assumptions": [
+        "Schema example only; no engine eligibility or business authorization is claimed."
+      ],
+      "review_steps": [
+        "Do not apply; use only to understand the JSON shape."
+      ],
+      "change_request_description": "Standalone synthetic schema illustration, not a proposal for the analysis example."
+    }
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "$defs": {
+    "RejectedTextRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        },
+        "source_ref": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Source Ref",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_ref",
+        "reason"
+      ],
+      "title": "RejectedTextRecord",
+      "type": "object"
+    },
+    "TextObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "enum": [
+            "DROP",
+            "ALLOW"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "destination_address": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "minLength": 2,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Destination Address"
+        },
+        "destination_port": {
+          "anyOf": [
+            {
+              "maximum": 65535,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Destination Port"
+        },
+        "fields": {
+          "items": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "maxLength": 128,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "anyOf": [
+                  {
+                    "maxLength": 4096,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            ],
+            "type": "array"
+          },
+          "maxItems": 64,
+          "title": "Fields",
+          "type": "array"
+        },
+        "protocol": {
+          "enum": [
+            "TCP",
+            "UDP",
+            "ICMP",
+            "ICMPV6"
+          ],
+          "title": "Protocol",
+          "type": "string"
+        },
+        "source_address": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "minLength": 2,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Source Address"
+        },
+        "source_port": {
+          "anyOf": [
+            {
+              "maximum": 65535,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Source Port"
+        },
+        "source_ref": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Source Ref",
+          "type": "string"
+        },
+        "time_basis": {
+          "enum": [
+            "recorded_utc",
+            "recorded_offset",
+            "unknown"
+          ],
+          "title": "Time Basis",
+          "type": "string"
+        },
+        "timestamp_utc": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Timestamp Utc"
+        },
+        "timestamp_wall": {
+          "format": "date-time",
+          "title": "Timestamp Wall",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_ref",
+        "timestamp_wall",
+        "timestamp_utc",
+        "time_basis",
+        "action",
+        "protocol",
+        "source_address",
+        "destination_address",
+        "source_port",
+        "destination_port",
+        "fields"
+      ],
+      "title": "TextObservation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "application_identity_available": {
+      "const": false,
+      "default": false,
+      "title": "Application Identity Available",
+      "type": "boolean"
+    },
+    "observations": {
+      "items": {
+        "$ref": "#/$defs/TextObservation"
+      },
+      "maxItems": 100000,
+      "title": "Observations",
+      "type": "array"
+    },
+    "proposal_eligible": {
+      "const": false,
+      "default": false,
+      "title": "Proposal Eligible",
+      "type": "boolean"
+    },
+    "rejected": {
+      "items": {
+        "$ref": "#/$defs/RejectedTextRecord"
+      },
+      "maxItems": 100001,
+      "title": "Rejected",
+      "type": "array"
+    },
+    "truncated": {
+      "title": "Truncated",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "observations",
+    "rejected",
+    "truncated"
+  ],
+  "title": "TextLogResult",
+  "type": "object"
+}

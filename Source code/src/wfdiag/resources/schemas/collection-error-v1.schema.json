@@ -1,0 +1,43 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Code",
+      "type": "string"
+    },
+    "occurrences": {
+      "default": 1,
+      "maximum": 100000,
+      "minimum": 1,
+      "title": "Occurrences",
+      "type": "integer"
+    },
+    "source": {
+      "enum": [
+        "host",
+        "profiles",
+        "rules",
+        "events",
+        "collection-errors",
+        "network",
+        "firewall-log"
+      ],
+      "title": "Source",
+      "type": "string"
+    },
+    "summary": {
+      "maxLength": 500,
+      "title": "Summary",
+      "type": "string"
+    }
+  },
+  "required": [
+    "source",
+    "code",
+    "summary"
+  ],
+  "title": "CollectionError",
+  "type": "object"
+}

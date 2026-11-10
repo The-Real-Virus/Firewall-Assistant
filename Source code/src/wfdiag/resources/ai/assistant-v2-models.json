@@ -1,0 +1,64 @@
+{
+  "protocol": "assistant-v2",
+  "review_date": "2026-11-08",
+  "validation_evidence": "See the exact candidate build record; this catalog is not live certification",
+  "default_chat_model": "gemini-3.5-flash-lite",
+  "models": [
+    {
+      "provider": "google",
+      "model": "gemini-3.5-flash-lite",
+      "host": "generativelanguage.googleapis.com",
+      "route": "/v1beta/models/gemini-3.5-flash-lite:generateContent",
+      "thinking": "MINIMAL",
+      "output_tokens": "provider default"
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "host": "generativelanguage.googleapis.com",
+      "route": "/v1beta/models/gemini-3.8-flash:generateContent",
+      "thinking": "LOW",
+      "output_tokens": "provider default"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "host": "api.openai.com",
+      "route": "/v1/responses",
+      "thinking": "none",
+      "output_tokens": "provider default"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "host": "api.anthropic.com",
+      "route": "/v1/messages",
+      "thinking": "default",
+      "output_tokens": 64000
+    }
+  ],
+  "actions": [
+    "get_app_state",
+    "navigate",
+    "open_example",
+    "choose_case",
+    "run_preflight",
+    "collect_evidence",
+    "analyze_case",
+    "read_findings",
+    "select_finding",
+    "export_report",
+    "prepare_proposal",
+    "compare_cases"
+  ],
+  "limits": {
+    "provider_rounds_per_turn": 3,
+    "app_actions_per_turn": 6,
+    "recent_exchanges": 5,
+    "session_attempts": null,
+    "output_policy": "Provider defaults where optional; required Anthropic field uses documented model maximum. Transport/time/action bounds remain."
+  },
+  "automatic_retry": false,
+  "automatic_model_fallback": false,
+  "firewall_mutation": false
+}

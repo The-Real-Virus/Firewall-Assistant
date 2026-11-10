@@ -1,0 +1,36 @@
+Third party dependency notices
+
+Unsigned development evaluation. Distribution approval and native component review are pending.
+Bundled dependencies retain their own license terms and notices.
+The full installed dependency license texts accompany this index in the notices directory.
+Python runtime terms are in notices/Python-LICENSE.txt. PyInstaller bootloader/build-tool terms
+are separate. The native library/file inventory must be matched to the final portable build.
+
+PySide6/Shiboken metadata lists LGPL/GPL alternatives. Their wheel includes a commercial notice
+as well. No commercial license is claimed. The owner must select the distribution route and
+complete applicable corresponding-source, native third-party notice and replacement obligations
+before public redistribution. Dynamic Qt libraries must remain replaceable in the one-folder
+package; replacement/source/rebuild instructions and verified matching sources are still needed.
+
+Official licensing: https://doc.qt.io/qt-6.12/licensing.html
+Qt for Python: https://doc.qt.io/qtforpython-6/licenses.html
+No API key, cloud request, firewall control or telemetry is needed to read these notices.
+
+Locked package inventory
+annotated-types 0.8.0: MIT
+anyio 4.16.0: MIT
+certifi 2026.10.23: MPL-2.0
+defusedxml 0.7.1: PSFL
+h11 0.16.0: MIT
+httpcore 1.0.9: BSD-3-Clause
+httpx 0.28.1: BSD-3-Clause
+idna 3.20: BSD-3-Clause
+jinja2 3.1.6: Unspecified; review included texts
+markupsafe 3.0.4: BSD-3-Clause
+pydantic 2.14.2: MIT
+pydantic-core 2.50.2: MIT
+pyside6-essentials 6.12.0: LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
+shiboken6 6.12.0: LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
+typing-extensions 4.16.0: PSF-2.0
+typing-inspection 0.4.4: MIT
+pyinstaller 6.22.3: GPLv2-or-later with a special exception which allows to use PyInstaller to build and distribute non-free programs (including commercial ones)

@@ -1,0 +1,54 @@
+{
+  "gate_id": "G1",
+  "status": "pass",
+  "source_revision": "23aceccb838f78c1b696ee3710b3ba72dcdbffc3",
+  "recorded_at_utc": "2026-11-04T13:43:20.163371+00:00",
+  "evidence": [
+    {
+      "command": "[\".venv/Scripts/python.exe\", \"-m\", \"pytest\", \"tests/contract\", \"tests/ai/test_contracts.py\", \"tests/unit/test_desktop_protocol.py\", \"tests/unit/test_collection_protocol.py\", \"-q\"]",
+      "cwd": "Product workspace (path omitted)",
+      "platform": "Windows-11-10.0.22621-SP0",
+      "timestamp_utc": "2026-11-04T13:42:28.335737+00:00",
+      "exit_code": 0,
+      "log": "Private build log retained locally",
+      "actor": "codex",
+      "source_revision": "23aceccb838f78c1b696ee3710b3ba72dcdbffc3",
+      "artifact_sha256": null
+    },
+    {
+      "command": "[\".venv/Scripts/python.exe\", \"scripts/export_schemas.py\", \"--check\"]",
+      "cwd": "Product workspace (path omitted)",
+      "platform": "Windows-11-10.0.22621-SP0",
+      "timestamp_utc": "2026-11-04T13:42:29.482990+00:00",
+      "exit_code": 0,
+      "log": "Private build log retained locally",
+      "actor": "codex",
+      "source_revision": "23aceccb838f78c1b696ee3710b3ba72dcdbffc3",
+      "artifact_sha256": null
+    },
+    {
+      "command": "[\".venv/Scripts/python.exe\", \"scripts/build_windows.py\", \"--audit-report\", \".build/dependency-review-20261104.cdx.json\"]",
+      "cwd": "Product workspace (path omitted)",
+      "platform": "Windows-11-10.0.22621-SP0",
+      "timestamp_utc": "2026-11-04T13:25:01.794071+00:00",
+      "exit_code": 0,
+      "log": "Private build log retained locally",
+      "actor": "codex",
+      "source_revision": "23aceccb838f78c1b696ee3710b3ba72dcdbffc3",
+      "artifact_sha256": "bb86e591fcb1ae82cc5a52b87980997053c9c4a3c13a052ce678f3597c75f467"
+    },
+    {
+      "command": "[\".venv/Scripts/python.exe\", \"scripts/verify_local_package.py\", \"--candidate\", \"release-local/evaluation-20261104T132502826544Z\"]",
+      "cwd": "Product workspace (path omitted)",
+      "platform": "Windows-11-10.0.22621-SP0",
+      "timestamp_utc": "2026-11-04T13:29:38.417564+00:00",
+      "exit_code": 0,
+      "log": "Private build log retained locally",
+      "actor": "codex",
+      "source_revision": "23aceccb838f78c1b696ee3710b3ba72dcdbffc3",
+      "artifact_sha256": "bb86e591fcb1ae82cc5a52b87980997053c9c4a3c13a052ce678f3597c75f467"
+    }
+  ],
+  "blockers": [],
+  "decision_by": "Codex local integrated contract review; not native/release approval"
+}

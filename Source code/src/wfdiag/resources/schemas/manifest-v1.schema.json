@@ -1,0 +1,316 @@
+{
+  "$defs": {
+    "Completeness": {
+      "enum": [
+        "complete",
+        "incomplete"
+      ],
+      "title": "Completeness",
+      "type": "string"
+    },
+    "Host": {
+      "additionalProperties": false,
+      "properties": {
+        "architecture": {
+          "enum": [
+            "x64",
+            "arm64",
+            "x86",
+            "unknown"
+          ],
+          "title": "Architecture",
+          "type": "string"
+        },
+        "build": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Build"
+        },
+        "edition": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Edition"
+        },
+        "hostname": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hostname"
+        },
+        "os": {
+          "enum": [
+            "windows",
+            "linux",
+            "darwin",
+            "unknown"
+          ],
+          "title": "Os",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "supported_build": {
+          "title": "Supported Build",
+          "type": "boolean"
+        },
+        "windows_product_type": {
+          "anyOf": [
+            {
+              "enum": [
+                1,
+                2,
+                3
+              ],
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Windows Product Type"
+        }
+      },
+      "required": [
+        "os",
+        "edition",
+        "build",
+        "architecture",
+        "supported_build"
+      ],
+      "title": "Host",
+      "type": "object"
+    },
+    "ManifestFile": {
+      "additionalProperties": false,
+      "properties": {
+        "byte_length": {
+          "maximum": 134217728,
+          "minimum": 0,
+          "title": "Byte Length",
+          "type": "integer"
+        },
+        "filename": {
+          "enum": [
+            "host.json",
+            "profiles.json",
+            "rules.json",
+            "events.ndjson",
+            "collection-errors.json",
+            "network.json",
+            "firewall-log.txt"
+          ],
+          "title": "Filename",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "filename",
+        "byte_length",
+        "sha256"
+      ],
+      "title": "ManifestFile",
+      "type": "object"
+    },
+    "SourceState": {
+      "enum": [
+        "complete",
+        "empty",
+        "unavailable",
+        "access_denied",
+        "error",
+        "truncated",
+        "cancelled",
+        "unsupported"
+      ],
+      "title": "SourceState",
+      "type": "string"
+    },
+    "SourceStatus": {
+      "additionalProperties": false,
+      "properties": {
+        "records": {
+          "default": 0,
+          "maximum": 100000,
+          "minimum": 0,
+          "title": "Records",
+          "type": "integer"
+        },
+        "source": {
+          "enum": [
+            "host",
+            "profiles",
+            "rules",
+            "events",
+            "collection-errors",
+            "network",
+            "firewall-log"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/SourceState"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "maxLength": 500,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Warnings",
+          "type": "array"
+        },
+        "window_end_utc": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Window End Utc"
+        },
+        "window_start_utc": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Window Start Utc"
+        }
+      },
+      "required": [
+        "source",
+        "state",
+        "window_start_utc",
+        "window_end_utc"
+      ],
+      "title": "SourceStatus",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "collected_at_utc": {
+      "format": "date-time",
+      "title": "Collected At Utc",
+      "type": "string"
+    },
+    "collector_version": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Collector Version",
+      "type": "string"
+    },
+    "completeness": {
+      "$ref": "#/$defs/Completeness"
+    },
+    "files": {
+      "items": {
+        "$ref": "#/$defs/ManifestFile"
+      },
+      "maxItems": 7,
+      "minItems": 5,
+      "title": "Files",
+      "type": "array"
+    },
+    "host": {
+      "$ref": "#/$defs/Host"
+    },
+    "policy_change_observed": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Policy Change Observed"
+    },
+    "policy_snapshot_utc": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Policy Snapshot Utc"
+    },
+    "run_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Run Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/SourceStatus"
+      },
+      "maxItems": 7,
+      "minItems": 5,
+      "title": "Sources",
+      "type": "array"
+    }
+  },
+  "required": [
+    "run_id",
+    "collector_version",
+    "collected_at_utc",
+    "host",
+    "completeness",
+    "sources",
+    "files"
+  ],
+  "title": "Manifest",
+  "type": "object"
+}

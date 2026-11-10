@@ -1,0 +1,511 @@
+{
+  "schema_version": 1,
+  "purpose": "T01-T24 planned catalog and unexecuted ledger; no native pass inferred",
+  "source": "docs/test-plan.md",
+  "scenarios": [
+    {
+      "id": "T01",
+      "scenario": "inbound default block",
+      "ground_truth": "Known complete default-block flow with independently verified intent",
+      "expected_behavior": "DEFAULT_BLOCK; eligible only with all prerequisites",
+      "level": "native_or_mixed",
+      "setup": "reviewed helper source; native execution blocked",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T02",
+      "scenario": "explicit block",
+      "ground_truth": "Known explicit blocking rule and conflicting allow",
+      "expected_behavior": "EXPLICIT_BLOCK; no add-allow proposal",
+      "level": "native_or_mixed",
+      "setup": "reviewed helper source; native execution blocked",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T03",
+      "scenario": "disabled rule",
+      "ground_truth": "A disabled rule otherwise matches",
+      "expected_behavior": "Disabled rule cannot explain effective match; conservative attribution",
+      "level": "native_or_mixed",
+      "setup": "reviewed helper source; native execution blocked",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T04",
+      "scenario": "profile mismatch",
+      "ground_truth": "Known active/intended profile difference",
+      "expected_behavior": "PROFILE_MISMATCH; no guessed profile expansion",
+      "level": "native_or_mixed",
+      "setup": "reviewed helper source; native execution blocked",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T05",
+      "scenario": "outbound client and ephemeral local port",
+      "ground_truth": "Known remote service port and changing local ports",
+      "expected_behavior": "DEFAULT_BLOCK if supported; remote service port only",
+      "level": "native_or_mixed",
+      "setup": "reviewed helper source; native execution blocked",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T06",
+      "scenario": "IPv6",
+      "ground_truth": "Known IPv6 flow and matching address family",
+      "expected_behavior": "Correct IPv6 normalization and conservative matching",
+      "level": "native_or_mixed",
+      "setup": "reviewed helper source; native execution blocked",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T07",
+      "scenario": "multiple candidate rules",
+      "ground_truth": "Two complete indirect candidate matches",
+      "expected_behavior": "Preserve all candidates; no arbitrary first cause",
+      "level": "native_or_mixed",
+      "setup": "reviewed helper source; native execution blocked",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T08",
+      "scenario": "missing auditing",
+      "ground_truth": "Known unavailable evidence source",
+      "expected_behavior": "EVIDENCE_GAP; incomplete; no proposal",
+      "level": "native_or_mixed",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T09",
+      "scenario": "access denied",
+      "ground_truth": "Known denied required source",
+      "expected_behavior": "Distinct denial; incomplete; no empty success",
+      "level": "native_or_mixed",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T10",
+      "scenario": "no relevant event",
+      "ground_truth": "Complete evidence window with no intended flow event",
+      "expected_behavior": "NO_RELEVANT_EVENT; no healthy-host claim or proposal",
+      "level": "native_or_mixed",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T11",
+      "scenario": "stale policy snapshot",
+      "ground_truth": "Known policy change after event",
+      "expected_behavior": "Historical attribution uncertain; no proposal",
+      "level": "native_or_mixed",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T12",
+      "scenario": "unresolved native application path",
+      "ground_truth": "Unmapped device path",
+      "expected_behavior": "Preserve raw path/unknown identity; no proposal",
+      "level": "native_or_mixed",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T13",
+      "scenario": "PID reuse or exited process",
+      "ground_truth": "Historical PID differs from current process identity",
+      "expected_behavior": "Current PID cannot confirm historical identity; no identity-based eligibility",
+      "level": "native_or_mixed",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T14",
+      "scenario": "localized display text",
+      "ground_truth": "Same XML names with localized display strings",
+      "expected_behavior": "Same normalized evidence; no display-message parsing",
+      "level": "native_or_mixed",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T15",
+      "scenario": "missing Filter Origin",
+      "ground_truth": "Event without resolvable origin",
+      "expected_behavior": "Candidate/unknown attribution only; no false confirmation",
+      "level": "native_or_mixed",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T16",
+      "scenario": "malformed or oversized input",
+      "ground_truth": "Invalid XML/JSON/enums/depth/actual bytes",
+      "expected_behavior": "Fail closed or explicit incomplete per source contract; no proposal",
+      "level": "fixture_only",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T17",
+      "scenario": "HTML injection",
+      "ground_truth": "Markup in imported values",
+      "expected_behavior": "Escaped static report/plain text UI; no execution or fetch",
+      "level": "fixture_only",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T18",
+      "scenario": "path traversal or reparse redirection",
+      "ground_truth": "Hostile manifest/output/reparse paths",
+      "expected_behavior": "Reject unsafe inputs and preserve existing output",
+      "level": "fixture_only",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T19",
+      "scenario": "managed policy or disabled local merge",
+      "ground_truth": "Known GPO/MDM ownership restriction",
+      "expected_behavior": "LOCAL_RULE_MERGE_RESTRICTED or supported policy explanation; owner route",
+      "level": "native_or_mixed",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T20",
+      "scenario": "unsupported service/IPsec/third party filter",
+      "ground_truth": "Known unevaluated match condition",
+      "expected_behavior": "Unknown/unresolved condition; no proposal",
+      "level": "native_or_mixed",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T21",
+      "scenario": "interrupted or truncated capture",
+      "ground_truth": "Known cap, timeout or cancellation",
+      "expected_behavior": "Incomplete/quarantined; never completed badge",
+      "level": "native_or_mixed",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T22",
+      "scenario": "redaction canary",
+      "ground_truth": "Planted secrets plus identity/path/address free text",
+      "expected_behavior": "No leak in share artifact/AI bytes; block unsafe export/send",
+      "level": "fixture_only",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T23",
+      "scenario": "clean machine packaged startup",
+      "ground_truth": "Exact ZIP on clean target without developer runtimes",
+      "expected_behavior": "GUI/CLI/jobs/examples work; separate AI-off/on evidence",
+      "level": "native_or_mixed",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    },
+    {
+      "id": "T24",
+      "scenario": "before and after comparison",
+      "ground_truth": "Two complete analyses plus deliberately missing later traffic",
+      "expected_behavior": "Preserve ordering/context/uncertainty; fewer events is not repair proof",
+      "level": "native_or_mixed",
+      "setup": "reviewed manual or fixture setup required",
+      "actual_status": "blocked",
+      "actual_result": null,
+      "source_commit": null,
+      "windows_build": null,
+      "artifact_sha256": null,
+      "case_sha256": null,
+      "started_at_utc": null,
+      "ended_at_utc": null,
+      "logs": [],
+      "cleanup_status": "not_run",
+      "blockers": [
+        "No native A01-approved run or per-case accepted evidence recorded in this ledger"
+      ]
+    }
+  ]
+}

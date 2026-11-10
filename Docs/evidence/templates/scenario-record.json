@@ -1,0 +1,21 @@
+{
+  "template_only": true,
+  "test_id": null,
+  "source_revision": null,
+  "platform": null,
+  "timestamp_utc": null,
+  "fixture_sha256": null,
+  "input": null,
+  "ground_truth": null,
+  "expected_finding": null,
+  "expected_completeness": null,
+  "expected_proposal_eligibility": null,
+  "actual_result": null,
+  "validation_status": "pending",
+  "command": null,
+  "cwd": null,
+  "exit_code": null,
+  "actor": null,
+  "evidence_paths": [],
+  "cleanup_status": null
+}

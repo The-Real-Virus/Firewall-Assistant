@@ -1,0 +1,422 @@
+{
+  "$defs": {
+    "CancelledEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "job_id": {
+          "pattern": "^[A-Za-z0-9-]{1,64}$",
+          "title": "Job Id",
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/CancelledPayload"
+        },
+        "protocol_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        },
+        "sequence": {
+          "maximum": 1000000,
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "type": {
+          "const": "cancelled",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "job_id",
+        "sequence",
+        "type",
+        "payload"
+      ],
+      "title": "CancelledEvent",
+      "type": "object"
+    },
+    "CancelledPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "cleanup_confirmed": {
+          "title": "Cleanup Confirmed",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "cleanup_confirmed"
+      ],
+      "title": "CancelledPayload",
+      "type": "object"
+    },
+    "CompletedEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "job_id": {
+          "pattern": "^[A-Za-z0-9-]{1,64}$",
+          "title": "Job Id",
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/CompletedPayload"
+        },
+        "protocol_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        },
+        "sequence": {
+          "maximum": 1000000,
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "type": {
+          "const": "completed",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "job_id",
+        "sequence",
+        "type",
+        "payload"
+      ],
+      "title": "CompletedEvent",
+      "type": "object"
+    },
+    "CompletedPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "completeness": {
+          "$ref": "#/$defs/Completeness"
+        },
+        "exit_code": {
+          "enum": [
+            0,
+            5
+          ],
+          "title": "Exit Code",
+          "type": "integer"
+        },
+        "output": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Output",
+          "type": "string"
+        }
+      },
+      "required": [
+        "output",
+        "completeness",
+        "exit_code"
+      ],
+      "title": "CompletedPayload",
+      "type": "object"
+    },
+    "Completeness": {
+      "enum": [
+        "complete",
+        "incomplete"
+      ],
+      "title": "Completeness",
+      "type": "string"
+    },
+    "FailedEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "job_id": {
+          "pattern": "^[A-Za-z0-9-]{1,64}$",
+          "title": "Job Id",
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/FailedPayload"
+        },
+        "protocol_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        },
+        "sequence": {
+          "maximum": 1000000,
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "type": {
+          "const": "failed",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "job_id",
+        "sequence",
+        "type",
+        "payload"
+      ],
+      "title": "FailedEvent",
+      "type": "object"
+    },
+    "FailedPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "exit_code": {
+          "enum": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "title": "Exit Code",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "code",
+        "exit_code"
+      ],
+      "title": "FailedPayload",
+      "type": "object"
+    },
+    "ProgressEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "job_id": {
+          "pattern": "^[A-Za-z0-9-]{1,64}$",
+          "title": "Job Id",
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/ProgressPayload"
+        },
+        "protocol_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        },
+        "sequence": {
+          "maximum": 1000000,
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "type": {
+          "const": "progress",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "job_id",
+        "sequence",
+        "type",
+        "payload"
+      ],
+      "title": "ProgressEvent",
+      "type": "object"
+    },
+    "ProgressPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "completed_units": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Completed Units"
+        },
+        "stage": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Stage",
+          "type": "string"
+        },
+        "total_units": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Total Units"
+        }
+      },
+      "required": [
+        "stage"
+      ],
+      "title": "ProgressPayload",
+      "type": "object"
+    },
+    "StartedEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "job_id": {
+          "pattern": "^[A-Za-z0-9-]{1,64}$",
+          "title": "Job Id",
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/StartedPayload"
+        },
+        "protocol_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        },
+        "sequence": {
+          "maximum": 1000000,
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "type": {
+          "const": "started",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "job_id",
+        "sequence",
+        "type",
+        "payload"
+      ],
+      "title": "StartedEvent",
+      "type": "object"
+    },
+    "StartedPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "engine_version": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Engine Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "engine_version"
+      ],
+      "title": "StartedPayload",
+      "type": "object"
+    },
+    "WarningEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "job_id": {
+          "pattern": "^[A-Za-z0-9-]{1,64}$",
+          "title": "Job Id",
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/WarningPayload"
+        },
+        "protocol_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        },
+        "sequence": {
+          "maximum": 1000000,
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "type": {
+          "const": "warning",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "job_id",
+        "sequence",
+        "type",
+        "payload"
+      ],
+      "title": "WarningEvent",
+      "type": "object"
+    },
+    "WarningPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "maxLength": 500,
+          "title": "Message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "title": "WarningPayload",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "cancelled": "#/$defs/CancelledEvent",
+      "completed": "#/$defs/CompletedEvent",
+      "failed": "#/$defs/FailedEvent",
+      "progress": "#/$defs/ProgressEvent",
+      "started": "#/$defs/StartedEvent",
+      "warning": "#/$defs/WarningEvent"
+    },
+    "propertyName": "type"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/StartedEvent"
+    },
+    {
+      "$ref": "#/$defs/ProgressEvent"
+    },
+    {
+      "$ref": "#/$defs/WarningEvent"
+    },
+    {
+      "$ref": "#/$defs/CompletedEvent"
+    },
+    {
+      "$ref": "#/$defs/FailedEvent"
+    },
+    {
+      "$ref": "#/$defs/CancelledEvent"
+    }
+  ]
+}

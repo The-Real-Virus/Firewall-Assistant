@@ -1,0 +1,13 @@
+{
+  "approval_id": "A01",
+  "decision": "pending",
+  "decision_by": null,
+  "recorded_at_utc": null,
+  "packet_sha256": null,
+  "lab_config_sha256": null,
+  "script_sha256": {
+    "Lab.Common.ps1": null,
+    "Invoke-Scenario.ps1": null,
+    "Reset-Lab.ps1": null
+  }
+}

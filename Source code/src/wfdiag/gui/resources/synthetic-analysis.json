@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.0",
+  "run_id": "synthetic-training-case",
+  "engine_version": "1.0.0rc1",
+  "analyzed_at_utc": "2026-11-01T00:11:00Z",
+  "completeness": "complete",
+  "sources": [
+    {
+      "source": "host",
+      "state": "complete",
+      "window_start_utc": "2026-11-01T00:00:00Z",
+      "window_end_utc": "2026-11-01T00:10:00Z",
+      "records": 1,
+      "warnings": []
+    },
+    {
+      "source": "profiles",
+      "state": "complete",
+      "window_start_utc": "2026-11-01T00:00:00Z",
+      "window_end_utc": "2026-11-01T00:10:00Z",
+      "records": 3,
+      "warnings": []
+    },
+    {
+      "source": "rules",
+      "state": "complete",
+      "window_start_utc": "2026-11-01T00:00:00Z",
+      "window_end_utc": "2026-11-01T00:10:00Z",
+      "records": 0,
+      "warnings": []
+    },
+    {
+      "source": "events",
+      "state": "complete",
+      "window_start_utc": "2026-11-01T00:00:00Z",
+      "window_end_utc": "2026-11-01T00:10:00Z",
+      "records": 1,
+      "warnings": []
+    },
+    {
+      "source": "collection-errors",
+      "state": "complete",
+      "window_start_utc": "2026-11-01T00:00:00Z",
+      "window_end_utc": "2026-11-01T00:10:00Z",
+      "records": 0,
+      "warnings": []
+    },
+    {
+      "source": "network",
+      "state": "complete",
+      "window_start_utc": "2026-11-01T00:00:00Z",
+      "window_end_utc": "2026-11-01T00:10:00Z",
+      "records": 1,
+      "warnings": []
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "F40c0eb1513952dcd2ab52e1763db7b9befd14c03144ce0dd38a6d5a71e9a58c4",
+      "category": "DEFAULT_BLOCK",
+      "evidence_grade": "supported",
+      "summary": "Possible default block",
+      "observation": "Blocked event 5157/1 at 2026-11-01T00:05:00+00:00; rule candidates: 0 complete, 0 incomplete.",
+      "evidence_refs": [
+        "events:1",
+        "profiles:Private"
+      ],
+      "candidate_rules": [],
+      "policy_snapshot_utc": "2026-11-01T00:05:30Z",
+      "relevance": "relevant",
+      "limitations": [
+        "Current policy is not event-time proof.",
+        "Candidate matches do not prove filter origin."
+      ],
+      "alternative_explanations": [
+        "Policy may have changed.",
+        "Unresolved WFP, service, IPsec or app context."
+      ],
+      "next_steps": [
+        "REVIEW_POLICY_OWNER",
+        "REVIEW_WINDOW",
+        "VERIFY_INTENT"
+      ],
+      "proposal_eligible": true,
+      "refusal_codes": [],
+      "event": {
+        "schema_version": "1.0",
+        "event_id": 5157,
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "record_id": 1,
+        "event_version": 1,
+        "timestamp_utc": "2026-11-01T00:05:00Z",
+        "application_raw": "\\Device\\SyntheticVolume\\Training\\ExampleApp.exe",
+        "application_canonical": "C:\\Training\\ExampleApp.exe",
+        "pid_raw": "0x1234",
+        "pid_value": 4660,
+        "direction": "inbound",
+        "source_address": "192.168.56.20",
+        "source_port": 51000,
+        "destination_address": "192.168.56.10",
+        "destination_port": 8765,
+        "protocol": 6,
+        "filter_runtime_id": null,
+        "filter_origin": null,
+        "interface_index": 7,
+        "source_ref": "events:1",
+        "warnings": [],
+        "unknown_fields": {}
+      },
+      "event_refs": [
+        "events:1"
+      ]
+    }
+  ],
+  "intent": {
+    "schema_version": "1.0",
+    "application_path": "C:\\Training\\ExampleApp.exe",
+    "application_identity_confirmed": true,
+    "direction": "inbound",
+    "protocol": "TCP",
+    "profile": "Private",
+    "remote_addresses": [
+      "192.168.56.20/32"
+    ],
+    "local_port": 8765,
+    "remote_port": null,
+    "purpose": "Synthetic training values, replace with independently approved requirements"
+  },
+  "host": {
+    "schema_version": "1.0",
+    "os": "windows",
+    "edition": "Synthetic training edition",
+    "build": "19045.0",
+    "architecture": "x64",
+    "supported_build": false,
+    "hostname": null,
+    "windows_product_type": 1
+  },
+  "collected_at_utc": "2026-11-01T00:10:00Z",
+  "policy_snapshot_utc": "2026-11-01T00:05:30Z",
+  "policy_change_observed": false,
+  "profiles": [
+    {
+      "profile": "Domain",
+      "enabled": true,
+      "active": false,
+      "default_inbound": "Block",
+      "default_outbound": "Block",
+      "allow_local_rule_merge": true,
+      "policy_source": "Synthetic local policy",
+      "policy_source_type": "local",
+      "source_ref": "profiles:Domain"
+    },
+    {
+      "profile": "Private",
+      "enabled": true,
+      "active": true,
+      "default_inbound": "Block",
+      "default_outbound": "Block",
+      "allow_local_rule_merge": true,
+      "policy_source": "Synthetic local policy",
+      "policy_source_type": "local",
+      "source_ref": "profiles:Private"
+    },
+    {
+      "profile": "Public",
+      "enabled": true,
+      "active": false,
+      "default_inbound": "Block",
+      "default_outbound": "Block",
+      "allow_local_rule_merge": true,
+      "policy_source": "Synthetic local policy",
+      "policy_source_type": "local",
+      "source_ref": "profiles:Public"
+    }
+  ],
+  "policy_rules": [],
+  "network": {
+    "schema_version": "1.0",
+    "observed_at_utc": "2026-11-01T00:05:30Z",
+    "interfaces": [
+      {
+        "interface_index": 7,
+        "name": "Synthetic interface",
+        "addresses": [
+          "192.168.56.10"
+        ],
+        "active_profile": "Private",
+        "state": "up",
+        "source_ref": "network:7"
+      }
+    ]
+  },
+  "firewall_log": null
+}

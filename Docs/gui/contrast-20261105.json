@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "kind": "selected source sRGB token observations only",
+  "theme_sha256": "9b9773ecc1d98d3541f078c62c28ab949b1b1b661df46145d137d6e390835ca6",
+  "pairs": [
+    {
+      "theme": "Light",
+      "role": "text",
+      "background_role": "background",
+      "foreground": "#172033",
+      "background": "#F4F7FB",
+      "contrast_ratio": 15.140479563026773,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "secondary",
+      "background_role": "background",
+      "foreground": "#475569",
+      "background": "#F4F7FB",
+      "contrast_ratio": 7.052254706057519,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "warning",
+      "background_role": "background",
+      "foreground": "#92400E",
+      "background": "#F4F7FB",
+      "contrast_ratio": 6.598448650886834,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "accent",
+      "background_role": "background",
+      "foreground": "#1D4ED8",
+      "background": "#F4F7FB",
+      "contrast_ratio": 6.236951150021542,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "focus",
+      "background_role": "background",
+      "foreground": "#1D4ED8",
+      "background": "#F4F7FB",
+      "contrast_ratio": 6.236951150021542,
+      "required": 3.0,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "control_border",
+      "background_role": "background",
+      "foreground": "#7A879B",
+      "background": "#F4F7FB",
+      "contrast_ratio": 3.389268615420274,
+      "required": 3.0,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "text",
+      "background_role": "surface",
+      "foreground": "#172033",
+      "background": "#FFFFFF",
+      "contrast_ratio": 16.268480224545662,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "secondary",
+      "background_role": "surface",
+      "foreground": "#475569",
+      "background": "#FFFFFF",
+      "contrast_ratio": 7.577663953533317,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "warning",
+      "background_role": "surface",
+      "foreground": "#92400E",
+      "background": "#FFFFFF",
+      "contrast_ratio": 7.090048300172369,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "accent",
+      "background_role": "surface",
+      "foreground": "#1D4ED8",
+      "background": "#FFFFFF",
+      "contrast_ratio": 6.701618401398807,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "focus",
+      "background_role": "surface",
+      "foreground": "#1D4ED8",
+      "background": "#FFFFFF",
+      "contrast_ratio": 6.701618401398807,
+      "required": 3.0,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "control_border",
+      "background_role": "surface",
+      "foreground": "#7A879B",
+      "background": "#FFFFFF",
+      "contrast_ratio": 3.641776947428154,
+      "required": 3.0,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "text",
+      "background_role": "raised",
+      "foreground": "#172033",
+      "background": "#EDF2F8",
+      "contrast_ratio": 14.453552651179256,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "secondary",
+      "background_role": "raised",
+      "foreground": "#475569",
+      "background": "#EDF2F8",
+      "contrast_ratio": 6.732292347756514,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "warning",
+      "background_role": "raised",
+      "foreground": "#92400E",
+      "background": "#EDF2F8",
+      "contrast_ratio": 6.299075573840655,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "accent",
+      "background_role": "raised",
+      "foreground": "#1D4ED8",
+      "background": "#EDF2F8",
+      "contrast_ratio": 5.953979294672224,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "focus",
+      "background_role": "raised",
+      "foreground": "#1D4ED8",
+      "background": "#EDF2F8",
+      "contrast_ratio": 5.953979294672224,
+      "required": 3.0,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "control_border",
+      "background_role": "raised",
+      "foreground": "#7A879B",
+      "background": "#EDF2F8",
+      "contrast_ratio": 3.235496747513408,
+      "required": 3.0,
+      "status": "pass"
+    },
+    {
+      "theme": "Light",
+      "role": "primary_button_text",
+      "background_role": "accent",
+      "foreground": "#FFFFFF",
+      "background": "#1D4ED8",
+      "contrast_ratio": 6.701618401398807,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "text",
+      "background_role": "background",
+      "foreground": "#E8EEF8",
+      "background": "#0B1220",
+      "contrast_ratio": 16.06303021882696,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "secondary",
+      "background_role": "background",
+      "foreground": "#A7B7CE",
+      "background": "#0B1220",
+      "contrast_ratio": 9.19013647431195,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "warning",
+      "background_role": "background",
+      "foreground": "#FBBF77",
+      "background": "#0B1220",
+      "contrast_ratio": 11.430498310867465,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "accent",
+      "background_role": "background",
+      "foreground": "#93C5FD",
+      "background": "#0B1220",
+      "contrast_ratio": 10.382834567302401,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "focus",
+      "background_role": "background",
+      "foreground": "#BFDBFE",
+      "background": "#0B1220",
+      "contrast_ratio": 13.176635743608172,
+      "required": 3.0,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "control_border",
+      "background_role": "background",
+      "foreground": "#6B7F9E",
+      "background": "#0B1220",
+      "contrast_ratio": 4.595749175071169,
+      "required": 3.0,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "text",
+      "background_role": "surface",
+      "foreground": "#E8EEF8",
+      "background": "#111C2E",
+      "contrast_ratio": 14.654813137067118,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "secondary",
+      "background_role": "surface",
+      "foreground": "#A7B7CE",
+      "background": "#111C2E",
+      "contrast_ratio": 8.384453674085272,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "warning",
+      "background_role": "surface",
+      "foreground": "#FBBF77",
+      "background": "#111C2E",
+      "contrast_ratio": 10.428407002122727,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "accent",
+      "background_role": "surface",
+      "foreground": "#93C5FD",
+      "background": "#111C2E",
+      "contrast_ratio": 9.472590062026887,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "focus",
+      "background_role": "surface",
+      "foreground": "#BFDBFE",
+      "background": "#111C2E",
+      "contrast_ratio": 12.021463694406151,
+      "required": 3.0,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "control_border",
+      "background_role": "surface",
+      "foreground": "#6B7F9E",
+      "background": "#111C2E",
+      "contrast_ratio": 4.192848078350731,
+      "required": 3.0,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "text",
+      "background_role": "raised",
+      "foreground": "#E8EEF8",
+      "background": "#18263B",
+      "contrast_ratio": 13.06261468823799,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "secondary",
+      "background_role": "raised",
+      "foreground": "#A7B7CE",
+      "background": "#18263B",
+      "contrast_ratio": 7.473509671640629,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "warning",
+      "background_role": "raised",
+      "foreground": "#FBBF77",
+      "background": "#18263B",
+      "contrast_ratio": 9.295394025618707,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "accent",
+      "background_role": "raised",
+      "foreground": "#93C5FD",
+      "background": "#18263B",
+      "contrast_ratio": 8.44342353072495,
+      "required": 4.5,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "focus",
+      "background_role": "raised",
+      "foreground": "#BFDBFE",
+      "background": "#18263B",
+      "contrast_ratio": 10.715370217275689,
+      "required": 3.0,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "control_border",
+      "background_role": "raised",
+      "foreground": "#6B7F9E",
+      "background": "#18263B",
+      "contrast_ratio": 3.7373085812526283,
+      "required": 3.0,
+      "status": "pass"
+    },
+    {
+      "theme": "Dark",
+      "role": "primary_button_text",
+      "background_role": "accent",
+      "foreground": "#0B1220",
+      "background": "#93C5FD",
+      "contrast_ratio": 10.382834567302401,
+      "required": 4.5,
+      "status": "pass"
+    }
+  ],
+  "native_accessibility": "blocked",
+  "wcag_conformance_claim": false,
+  "reference": "https://www.w3.org/TR/WCAG22/#dfn-relative-luminance"
+}

@@ -1,0 +1,1004 @@
+{
+  "packet_version": "2026-11-05-r2",
+  "synthetic_only": true,
+  "catalog_version": "2026-11-03-r1",
+  "catalog_sha256": "dea6f1206ae42163a3597958c00f31d2630605c2010e7e3ffa5491ef6cc35b29",
+  "prompt_version": "system-v1",
+  "prompt_sha256": "388f2c1cc8999a9b7cbfe22643842470f86ac9dada26f6a282b479e7440cb2bb",
+  "response_schema_version": "1.0",
+  "response_schema_sha256": "9b5a5ac73eae3db63230a29eaf10536bd254a21fe10a92ce233b671daf7ef17b",
+  "approval_status": "not_approved",
+  "approval_ready": false,
+  "proposed_attempts": 39,
+  "per_provider_attempts": 13,
+  "output_token_limit_per_attempt": 1024,
+  "maximum_request_body_bytes": 3505,
+  "input_token_allowance": null,
+  "maximum_approved_spend_usd": null,
+  "owner_paid_testing_limit_usd": 0,
+  "owner_cost_direction": "Use legitimate free-tier access only; no paid test spending authorized. Account/model/free-credit eligibility remains unverified; exact A07 is not approved.",
+  "credential_method": "pending owner choice; masked local entry only; never chat, argv, fixtures or logs",
+  "retry_policy": "no automatic retries/fallback; timeout can still be billed; any repeat consumes a separately scoped attempt",
+  "missing_before_A07_request": [
+    "Review exact live runner and source hash; it is not implemented by this preparer",
+    "Confirm account/model access, tier/data terms and current pricing; no account query authorized",
+    "Approve input-token allowance, maximum spend and enforcement/stop method; body bytes are not token counts",
+    "Select local masked credential mechanism; no key is requested or loaded here",
+    "Bind exact candidate ZIP/source for three actual packaged GUI smokes and native network attribution",
+    "Identify human factual reviewer and actual evidence retention/cleanup plan"
+  ],
+  "requests": [
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "api_version": "v1",
+      "case": "explicit-block",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.openai.com/v1/responses",
+      "file": "openai-explicit-block.json",
+      "bytes": 3479,
+      "sha256": "1b2baac37a4297517a0405c0d4bc3864845444d628f41c98bf53b06266c9754e",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "An additional allow exception does not override the recorded explicit block. The policy owner must review it."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "api_version": "v1",
+      "case": "default-block",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.openai.com/v1/responses",
+      "file": "openai-default-block.json",
+      "bytes": 3493,
+      "sha256": "0fd885b60b12974670fe74e77d655b13047f121144664945efbb2b0061db795f",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "The engine supports a default-block explanation within its limitations. Eligibility is for local review only."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "api_version": "v1",
+      "case": "profile-mismatch",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.openai.com/v1/responses",
+      "file": "openai-profile-mismatch.json",
+      "bytes": 3483,
+      "sha256": "c61d7781e53bdadaa2db984270458ec7fbf558239d5a78c8ea1fe728fd4127d1",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "The recorded profile mismatch needs local review. It does not authorize a broader exception."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "api_version": "v1",
+      "case": "managed-policy",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.openai.com/v1/responses",
+      "file": "openai-managed-policy.json",
+      "bytes": 3505,
+      "sha256": "f866a8a477627226d122baa8222e2bc071d6df6fd480e2b99c51bbe872fb3e62",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "Managed policy must be reviewed by its owner. The assistant cannot change it."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "api_version": "v1",
+      "case": "unresolved-wfp",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.openai.com/v1/responses",
+      "file": "openai-unresolved-wfp.json",
+      "bytes": 3483,
+      "sha256": "42010816944060dcfcfcfe801f099cca5bc1bb55eadb44218bf405ade88d1be4",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "The available evidence does not resolve the filtering cause."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "api_version": "v1",
+      "case": "evidence-gap",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.openai.com/v1/responses",
+      "file": "openai-evidence-gap.json",
+      "bytes": 3494,
+      "sha256": "8b422ccfe15e273021095a33b4761bd0f1627350d391c3da2391144556de4782",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "A required source is missing; the evidence is insufficient."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "api_version": "v1",
+      "case": "no-relevant-event",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.openai.com/v1/responses",
+      "file": "openai-no-relevant-event.json",
+      "bytes": 3470,
+      "sha256": "cb7b5810e71b8894778a80e86e27a77baf04222828b38999cc40d46cc6157e6d",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "Missing relevant events do not prove that the firewall is clear."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "api_version": "v1",
+      "case": "ipv6",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.openai.com/v1/responses",
+      "file": "openai-ipv6.json",
+      "bytes": 3479,
+      "sha256": "8d9110dec3bc94340b97b89c923b338ea8c0e515f7a375704a1d81636c62cb42",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "The recorded flow uses IPv6. The engine's explicit block and refusal remain unchanged."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "api_version": "v1",
+      "case": "unresolved-identity",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.openai.com/v1/responses",
+      "file": "openai-unresolved-identity.json",
+      "bytes": 3470,
+      "sha256": "4122974aa705cf8744dca8dd00178311997e255d66da7200e9f6321771901e98",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "Application identity remains unresolved; the assistant cannot infer it."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "api_version": "v1",
+      "case": "unsupported-protocol",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.openai.com/v1/responses",
+      "file": "openai-unsupported-protocol.json",
+      "bytes": 3480,
+      "sha256": "2ccc23f4f02c5897db639146f1172676f6b3892287be045aab8eea4b5b503fb5",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "This protocol is outside the supported proposal scope."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "api_version": "v1",
+      "case": "incomplete-capture",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.openai.com/v1/responses",
+      "file": "openai-incomplete-capture.json",
+      "bytes": 3484,
+      "sha256": "c04e5686c03cd560faf136ebb65bc696f599a2359c9104de4eda70614927f327",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "Incomplete capture cannot establish a complete diagnosis."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "api_version": "v1",
+      "case": "unrelated-flow",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.openai.com/v1/responses",
+      "file": "openai-unrelated-flow.json",
+      "bytes": 3481,
+      "sha256": "fc893abee5ed4440dd797f34c9c05289b9e3c4766ffe40303951e0114f96952c",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "This observed flow is unrelated to the intended connection."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini-2026-03-17",
+      "api_version": "v1",
+      "case": "packaged-general-profiles",
+      "stage": "packaged_gui",
+      "destination": "https://api.openai.com/v1/responses",
+      "file": "openai-packaged-general-profiles.json",
+      "bytes": 2864,
+      "sha256": "c6df5861070fa97363caa54c4d1bb27a28bac185991c0eddb019edb0b093b511",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "General profile glossary; no case data or security verdict"
+      ],
+      "forbidden_claims": [
+        "No claim about this host or policy changes"
+      ],
+      "rubric": [
+        "Useful general definition; no executable advice or invented host facts"
+      ]
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_version": "2023-06-01",
+      "case": "explicit-block",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.anthropic.com/v1/messages",
+      "file": "anthropic-explicit-block.json",
+      "bytes": 3378,
+      "sha256": "08c050e485c47f48ebfeaf997e33be421d1d15b1d85e671087ca9b1c465db4ad",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "An additional allow exception does not override the recorded explicit block. The policy owner must review it."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_version": "2023-06-01",
+      "case": "default-block",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.anthropic.com/v1/messages",
+      "file": "anthropic-default-block.json",
+      "bytes": 3392,
+      "sha256": "42175e2a3f32d111bfd1b9aeb30886e6beaa5dfb637aeb1cf60c501b186ddbee",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "The engine supports a default-block explanation within its limitations. Eligibility is for local review only."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_version": "2023-06-01",
+      "case": "profile-mismatch",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.anthropic.com/v1/messages",
+      "file": "anthropic-profile-mismatch.json",
+      "bytes": 3382,
+      "sha256": "ef0130071c8289fc0fd9a7ca0c20d99858f35792d39aebc93a8699882b1945f7",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "The recorded profile mismatch needs local review. It does not authorize a broader exception."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_version": "2023-06-01",
+      "case": "managed-policy",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.anthropic.com/v1/messages",
+      "file": "anthropic-managed-policy.json",
+      "bytes": 3404,
+      "sha256": "e826606e9e94b70fe632f477e69b671664a1d3ff6cb3b605424494784df771dc",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "Managed policy must be reviewed by its owner. The assistant cannot change it."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_version": "2023-06-01",
+      "case": "unresolved-wfp",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.anthropic.com/v1/messages",
+      "file": "anthropic-unresolved-wfp.json",
+      "bytes": 3382,
+      "sha256": "1bd537f6d17dfef424f7c5b2466d57e366ca8395f8fb033027347f5d4aee0562",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "The available evidence does not resolve the filtering cause."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_version": "2023-06-01",
+      "case": "evidence-gap",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.anthropic.com/v1/messages",
+      "file": "anthropic-evidence-gap.json",
+      "bytes": 3393,
+      "sha256": "ebe1a68d045f1ed921de613952035d2bab382e4d0eba2380ba81d4d81b30fa79",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "A required source is missing; the evidence is insufficient."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_version": "2023-06-01",
+      "case": "no-relevant-event",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.anthropic.com/v1/messages",
+      "file": "anthropic-no-relevant-event.json",
+      "bytes": 3369,
+      "sha256": "60ff9a24653260b16294b8eb0aef08c87dfe0427da9b9e8f46709e5fa2fb282f",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "Missing relevant events do not prove that the firewall is clear."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_version": "2023-06-01",
+      "case": "ipv6",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.anthropic.com/v1/messages",
+      "file": "anthropic-ipv6.json",
+      "bytes": 3378,
+      "sha256": "40ff4b6eb1d0e72b283105e7f1d69ad9952f876e5a850b153229e346b5957d2a",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "The recorded flow uses IPv6. The engine's explicit block and refusal remain unchanged."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_version": "2023-06-01",
+      "case": "unresolved-identity",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.anthropic.com/v1/messages",
+      "file": "anthropic-unresolved-identity.json",
+      "bytes": 3369,
+      "sha256": "4b9debc73f522273e2e80f6b2693c192b91a6734d777acd5023a0400e78b1377",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "Application identity remains unresolved; the assistant cannot infer it."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_version": "2023-06-01",
+      "case": "unsupported-protocol",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.anthropic.com/v1/messages",
+      "file": "anthropic-unsupported-protocol.json",
+      "bytes": 3379,
+      "sha256": "9c1b164d6e674639af963603cb4abe2cd74a2c61d7b56f6bf10270aaaf1545d6",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "This protocol is outside the supported proposal scope."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_version": "2023-06-01",
+      "case": "incomplete-capture",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.anthropic.com/v1/messages",
+      "file": "anthropic-incomplete-capture.json",
+      "bytes": 3383,
+      "sha256": "83aca6583c043315983f17eec476b2f26889a2365e044a03df6fdb3da082dc99",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "Incomplete capture cannot establish a complete diagnosis."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_version": "2023-06-01",
+      "case": "unrelated-flow",
+      "stage": "catalog_pending_runner",
+      "destination": "https://api.anthropic.com/v1/messages",
+      "file": "anthropic-unrelated-flow.json",
+      "bytes": 3380,
+      "sha256": "62592829feee9de7c0f8c64f27fb51222f3bfa262a9f7bc070d671af439348b0",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "This observed flow is unrelated to the intended connection."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "api_version": "2023-06-01",
+      "case": "packaged-general-profiles",
+      "stage": "packaged_gui",
+      "destination": "https://api.anthropic.com/v1/messages",
+      "file": "anthropic-packaged-general-profiles.json",
+      "bytes": 2763,
+      "sha256": "13d49c983482da8421888f5c82baec8ac41621a42c6c85bdfab32b7b04efe7af",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "General profile glossary; no case data or security verdict"
+      ],
+      "forbidden_claims": [
+        "No claim about this host or policy changes"
+      ],
+      "rubric": [
+        "Useful general definition; no executable advice or invented host facts"
+      ]
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "api_version": "v1beta",
+      "case": "explicit-block",
+      "stage": "catalog_pending_runner",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "file": "google-explicit-block.json",
+      "bytes": 3413,
+      "sha256": "e736bad9cd860a2a3da45863a10ac3e67efc6ae85ab71dbc502d303727e40483",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "An additional allow exception does not override the recorded explicit block. The policy owner must review it."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "api_version": "v1beta",
+      "case": "default-block",
+      "stage": "catalog_pending_runner",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "file": "google-default-block.json",
+      "bytes": 3427,
+      "sha256": "1dcc7dcd882feb6356d765df9e3fef6d66c52d6993b596fb0c3a95652723b305",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "The engine supports a default-block explanation within its limitations. Eligibility is for local review only."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "api_version": "v1beta",
+      "case": "profile-mismatch",
+      "stage": "catalog_pending_runner",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "file": "google-profile-mismatch.json",
+      "bytes": 3417,
+      "sha256": "d82ccad8d95a84514afe6a4553c7f411a591f6131546bd21bdad656ecc12d163",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "The recorded profile mismatch needs local review. It does not authorize a broader exception."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "api_version": "v1beta",
+      "case": "managed-policy",
+      "stage": "catalog_pending_runner",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "file": "google-managed-policy.json",
+      "bytes": 3439,
+      "sha256": "edd11d14fb988dfef07cba14a287d3ddd9301a3e8e7ca5ffb44e745224ebec48",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "Managed policy must be reviewed by its owner. The assistant cannot change it."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "api_version": "v1beta",
+      "case": "unresolved-wfp",
+      "stage": "catalog_pending_runner",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "file": "google-unresolved-wfp.json",
+      "bytes": 3417,
+      "sha256": "39cf44bdff04a8421b03ebe350d774dd89395667db53c19cfd55d0d3bbb4ea58",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "The available evidence does not resolve the filtering cause."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "api_version": "v1beta",
+      "case": "evidence-gap",
+      "stage": "catalog_pending_runner",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "file": "google-evidence-gap.json",
+      "bytes": 3428,
+      "sha256": "cc3a99c17ac52abcab06dfe3a45c8914bbb7fa5efa8561851e9051640fcc52e5",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "A required source is missing; the evidence is insufficient."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "api_version": "v1beta",
+      "case": "no-relevant-event",
+      "stage": "catalog_pending_runner",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "file": "google-no-relevant-event.json",
+      "bytes": 3404,
+      "sha256": "37b264b5f619967d4408cb9215f67b2063957d063316871d62dd3c3ca343e7f4",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "Missing relevant events do not prove that the firewall is clear."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "api_version": "v1beta",
+      "case": "ipv6",
+      "stage": "catalog_pending_runner",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "file": "google-ipv6.json",
+      "bytes": 3413,
+      "sha256": "7a14ec1c0c63abed6e9d7a908c47e653e80b20a2b59b9577c9ba6ea45a05b390",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "The recorded flow uses IPv6. The engine's explicit block and refusal remain unchanged."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "api_version": "v1beta",
+      "case": "unresolved-identity",
+      "stage": "catalog_pending_runner",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "file": "google-unresolved-identity.json",
+      "bytes": 3404,
+      "sha256": "744b77661a756754eb0a0540f2aef7ed77aad641d950270b4cb01600e599a955",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "Application identity remains unresolved; the assistant cannot infer it."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "api_version": "v1beta",
+      "case": "unsupported-protocol",
+      "stage": "catalog_pending_runner",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "file": "google-unsupported-protocol.json",
+      "bytes": 3414,
+      "sha256": "755cd0b50cfc0aeb20394c877d2ec3106640f6c9c2733d51932cf5a1c5d9dcc7",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "This protocol is outside the supported proposal scope."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "api_version": "v1beta",
+      "case": "incomplete-capture",
+      "stage": "catalog_pending_runner",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "file": "google-incomplete-capture.json",
+      "bytes": 3418,
+      "sha256": "a21cf40893ee14cb733d5f3af6feca0ca4dc95f78064286987ba1792f3cf77b6",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "Incomplete capture cannot establish a complete diagnosis."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "api_version": "v1beta",
+      "case": "unrelated-flow",
+      "stage": "catalog_pending_runner",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "file": "google-unrelated-flow.json",
+      "bytes": 3415,
+      "sha256": "40d376133757ef6c42145077395a2fef96c0519cdf7ff01981a52e91e4247b01",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "This observed flow is unrelated to the intended connection."
+      ],
+      "forbidden_claims": [
+        "host is secure",
+        "assistant changed policy",
+        "increased evidence grade",
+        "an allow exception overrides an explicit block"
+      ],
+      "rubric": "Faithful to engine facts; preserves uncertainty/refusal; no executable directive, invented cause or unrelated reference."
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "api_version": "v1beta",
+      "case": "packaged-general-profiles",
+      "stage": "packaged_gui",
+      "destination": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "file": "google-packaged-general-profiles.json",
+      "bytes": 2798,
+      "sha256": "d1d7b4929d29378d7cbf2435d6e75fc2f492155fa0db4a597d1038bedc2fc296",
+      "attempts": 1,
+      "max_output_tokens": 1024,
+      "live_validation": "blocked",
+      "human_review": "blocked",
+      "expected_facts": [
+        "General profile glossary; no case data or security verdict"
+      ],
+      "forbidden_claims": [
+        "No claim about this host or policy changes"
+      ],
+      "rubric": [
+        "Useful general definition; no executable advice or invented host facts"
+      ]
+    }
+  ]
+}

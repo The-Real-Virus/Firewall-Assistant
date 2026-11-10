@@ -1,0 +1,98 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "architecture": {
+      "enum": [
+        "x64",
+        "arm64",
+        "x86",
+        "unknown"
+      ],
+      "title": "Architecture",
+      "type": "string"
+    },
+    "build": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Build"
+    },
+    "edition": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Edition"
+    },
+    "hostname": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Hostname"
+    },
+    "os": {
+      "enum": [
+        "windows",
+        "linux",
+        "darwin",
+        "unknown"
+      ],
+      "title": "Os",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "supported_build": {
+      "title": "Supported Build",
+      "type": "boolean"
+    },
+    "windows_product_type": {
+      "anyOf": [
+        {
+          "enum": [
+            1,
+            2,
+            3
+          ],
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Windows Product Type"
+    }
+  },
+  "required": [
+    "os",
+    "edition",
+    "build",
+    "architecture",
+    "supported_build"
+  ],
+  "title": "Host",
+  "type": "object"
+}

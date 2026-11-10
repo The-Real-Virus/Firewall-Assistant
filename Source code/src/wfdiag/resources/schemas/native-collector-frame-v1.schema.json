@@ -1,0 +1,508 @@
+{
+  "$defs": {
+    "FinishedFrame": {
+      "additionalProperties": false,
+      "properties": {
+        "at_utc": {
+          "format": "date-time",
+          "title": "At Utc",
+          "type": "string"
+        },
+        "codes": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Codes",
+          "type": "array"
+        },
+        "count": {
+          "maximum": 100000,
+          "minimum": 0,
+          "title": "Count",
+          "type": "integer"
+        },
+        "kind": {
+          "const": "finished",
+          "title": "Kind",
+          "type": "string"
+        },
+        "protocol_version": {
+          "const": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        },
+        "source": {
+          "enum": [
+            "host",
+            "network",
+            "profiles",
+            "rules",
+            "events"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "complete",
+            "empty",
+            "unavailable",
+            "access_denied",
+            "error",
+            "truncated",
+            "cancelled",
+            "unsupported"
+          ],
+          "title": "State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "protocol_version",
+        "source",
+        "at_utc",
+        "kind",
+        "state",
+        "count",
+        "codes"
+      ],
+      "title": "FinishedFrame",
+      "type": "object"
+    },
+    "Host": {
+      "additionalProperties": false,
+      "properties": {
+        "architecture": {
+          "enum": [
+            "x64",
+            "arm64",
+            "x86",
+            "unknown"
+          ],
+          "title": "Architecture",
+          "type": "string"
+        },
+        "build": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Build"
+        },
+        "edition": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Edition"
+        },
+        "hostname": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hostname"
+        },
+        "os": {
+          "enum": [
+            "windows",
+            "linux",
+            "darwin",
+            "unknown"
+          ],
+          "title": "Os",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "supported_build": {
+          "title": "Supported Build",
+          "type": "boolean"
+        },
+        "windows_product_type": {
+          "anyOf": [
+            {
+              "enum": [
+                1,
+                2,
+                3
+              ],
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Windows Product Type"
+        }
+      },
+      "required": [
+        "os",
+        "edition",
+        "build",
+        "architecture",
+        "supported_build"
+      ],
+      "title": "Host",
+      "type": "object"
+    },
+    "NativeRule": {
+      "additionalProperties": false,
+      "properties": {
+        "filter_errors": {
+          "items": {
+            "maxLength": 128,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Filter Errors",
+          "type": "array"
+        },
+        "filters": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "maxLength": 4096,
+                        "type": "string"
+                      },
+                      "maxItems": 100,
+                      "type": "array"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "maxProperties": 100,
+                "propertyNames": {
+                  "maxLength": 128,
+                  "minLength": 1
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "maxProperties": 7,
+          "minProperties": 7,
+          "propertyNames": {
+            "enum": [
+              "application",
+              "address",
+              "port",
+              "service",
+              "interface",
+              "interface_type",
+              "security"
+            ]
+          },
+          "title": "Filters",
+          "type": "object"
+        },
+        "rule": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "items": {
+                  "maxLength": 4096,
+                  "type": "string"
+                },
+                "maxItems": 100,
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "maxProperties": 100,
+          "propertyNames": {
+            "maxLength": 128,
+            "minLength": 1
+          },
+          "title": "Rule",
+          "type": "object"
+        }
+      },
+      "required": [
+        "rule",
+        "filters",
+        "filter_errors"
+      ],
+      "title": "NativeRule",
+      "type": "object"
+    },
+    "NetworkInterface": {
+      "additionalProperties": false,
+      "properties": {
+        "active_profile": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Profile"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "addresses": {
+          "items": {
+            "maxLength": 64,
+            "minLength": 2,
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Addresses",
+          "type": "array"
+        },
+        "interface_index": {
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Interface Index",
+          "type": "integer"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Name"
+        },
+        "source_ref": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Source Ref",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "up",
+            "down",
+            "unknown"
+          ],
+          "title": "State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "interface_index",
+        "name",
+        "addresses",
+        "active_profile",
+        "state",
+        "source_ref"
+      ],
+      "title": "NetworkInterface",
+      "type": "object"
+    },
+    "Profile": {
+      "enum": [
+        "Domain",
+        "Private",
+        "Public"
+      ],
+      "title": "Profile",
+      "type": "string"
+    },
+    "RecordFrame": {
+      "additionalProperties": false,
+      "properties": {
+        "at_utc": {
+          "format": "date-time",
+          "title": "At Utc",
+          "type": "string"
+        },
+        "data": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/NativeRule"
+            },
+            {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "maxLength": 4096,
+                      "type": "string"
+                    },
+                    "maxItems": 100,
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "maxProperties": 100,
+              "propertyNames": {
+                "maxLength": 128,
+                "minLength": 1
+              },
+              "type": "object"
+            },
+            {
+              "$ref": "#/$defs/Host"
+            },
+            {
+              "$ref": "#/$defs/NetworkInterface"
+            },
+            {
+              "maxLength": 65536,
+              "type": "string"
+            }
+          ],
+          "title": "Data"
+        },
+        "kind": {
+          "const": "record",
+          "title": "Kind",
+          "type": "string"
+        },
+        "protocol_version": {
+          "const": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        },
+        "source": {
+          "enum": [
+            "host",
+            "network",
+            "profiles",
+            "rules",
+            "events"
+          ],
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "protocol_version",
+        "source",
+        "at_utc",
+        "kind",
+        "data"
+      ],
+      "title": "RecordFrame",
+      "type": "object"
+    },
+    "StartedFrame": {
+      "additionalProperties": false,
+      "properties": {
+        "at_utc": {
+          "format": "date-time",
+          "title": "At Utc",
+          "type": "string"
+        },
+        "kind": {
+          "const": "started",
+          "title": "Kind",
+          "type": "string"
+        },
+        "protocol_version": {
+          "const": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        },
+        "source": {
+          "enum": [
+            "host",
+            "network",
+            "profiles",
+            "rules",
+            "events"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "window_end_utc": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Window End Utc"
+        },
+        "window_start_utc": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Window Start Utc"
+        }
+      },
+      "required": [
+        "protocol_version",
+        "source",
+        "at_utc",
+        "kind",
+        "window_start_utc",
+        "window_end_utc"
+      ],
+      "title": "StartedFrame",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "finished": "#/$defs/FinishedFrame",
+      "record": "#/$defs/RecordFrame",
+      "started": "#/$defs/StartedFrame"
+    },
+    "propertyName": "kind"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/StartedFrame"
+    },
+    {
+      "$ref": "#/$defs/RecordFrame"
+    },
+    {
+      "$ref": "#/$defs/FinishedFrame"
+    }
+  ]
+}

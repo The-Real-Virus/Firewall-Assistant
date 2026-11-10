@@ -1,0 +1,214 @@
+{
+  "$defs": {
+    "AiObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "pattern": "^[A-Z][A-Z0-9_]{0,63}$",
+          "title": "Code",
+          "type": "string"
+        },
+        "reference": {
+          "pattern": "^[FE][A-Z0-9]{8,24}$",
+          "title": "Reference",
+          "type": "string"
+        }
+      },
+      "required": [
+        "reference",
+        "code"
+      ],
+      "title": "AiObservation",
+      "type": "object"
+    },
+    "Category": {
+      "enum": [
+        "EXPLICIT_BLOCK",
+        "DEFAULT_BLOCK",
+        "PROFILE_MISMATCH",
+        "LOCAL_RULE_MERGE_RESTRICTED",
+        "UNRESOLVED_WFP_BLOCK",
+        "EVIDENCE_GAP",
+        "NO_RELEVANT_EVENT"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "Completeness": {
+      "enum": [
+        "complete",
+        "incomplete"
+      ],
+      "title": "Completeness",
+      "type": "string"
+    },
+    "EvidenceGrade": {
+      "enum": [
+        "confirmed",
+        "supported",
+        "unknown"
+      ],
+      "title": "EvidenceGrade",
+      "type": "string"
+    },
+    "NextStep": {
+      "enum": [
+        "VERIFY_INTENT",
+        "REVIEW_POLICY_OWNER",
+        "COLLECT_APPROVED_EVIDENCE",
+        "REVIEW_WINDOW",
+        "REVIEW_LIMITATIONS",
+        "GLOSSARY_PROFILE",
+        "GLOSSARY_AUDITING"
+      ],
+      "title": "NextStep",
+      "type": "string"
+    },
+    "Relevance": {
+      "enum": [
+        "relevant",
+        "unrelated",
+        "unknown"
+      ],
+      "title": "Relevance",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "address_family": {
+      "enum": [
+        "IPv4",
+        "IPv6",
+        "unknown"
+      ],
+      "title": "Address Family",
+      "type": "string"
+    },
+    "allowed_next_steps": {
+      "items": {
+        "$ref": "#/$defs/NextStep"
+      },
+      "maxItems": 5,
+      "title": "Allowed Next Steps",
+      "type": "array"
+    },
+    "application_alias": {
+      "const": "Application A",
+      "default": "Application A",
+      "title": "Application Alias",
+      "type": "string"
+    },
+    "category": {
+      "$ref": "#/$defs/Category"
+    },
+    "completeness": {
+      "$ref": "#/$defs/Completeness"
+    },
+    "direction": {
+      "enum": [
+        "inbound",
+        "outbound",
+        "unknown"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "evidence_grade": {
+      "$ref": "#/$defs/EvidenceGrade"
+    },
+    "finding_ref": {
+      "pattern": "^[FE][A-Z0-9]{8,24}$",
+      "title": "Finding Ref",
+      "type": "string"
+    },
+    "limitation_codes": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_]{0,63}$",
+        "type": "string"
+      },
+      "maxItems": 20,
+      "title": "Limitation Codes",
+      "type": "array"
+    },
+    "observations": {
+      "items": {
+        "$ref": "#/$defs/AiObservation"
+      },
+      "maxItems": 5,
+      "title": "Observations",
+      "type": "array"
+    },
+    "peer_alias": {
+      "const": "Peer B",
+      "default": "Peer B",
+      "title": "Peer Alias",
+      "type": "string"
+    },
+    "proposal_eligible": {
+      "title": "Proposal Eligible",
+      "type": "boolean"
+    },
+    "protocol": {
+      "anyOf": [
+        {
+          "const": "TCP",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Protocol"
+    },
+    "refusal_codes": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_]{0,63}$",
+        "type": "string"
+      },
+      "maxItems": 20,
+      "title": "Refusal Codes",
+      "type": "array"
+    },
+    "relevance": {
+      "$ref": "#/$defs/Relevance"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "service_port": {
+      "anyOf": [
+        {
+          "maximum": 65535,
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Service Port"
+    }
+  },
+  "required": [
+    "finding_ref",
+    "category",
+    "evidence_grade",
+    "completeness",
+    "relevance",
+    "proposal_eligible",
+    "refusal_codes",
+    "protocol",
+    "direction",
+    "address_family",
+    "service_port",
+    "observations",
+    "limitation_codes",
+    "allowed_next_steps"
+  ],
+  "title": "AiContext",
+  "type": "object"
+}

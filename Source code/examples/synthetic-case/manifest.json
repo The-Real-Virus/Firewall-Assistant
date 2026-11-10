@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "run_id": "synthetic-training-case",
+  "collector_version": "1.0.0rc1",
+  "collected_at_utc": "2026-11-01T00:10:00Z",
+  "policy_snapshot_utc": "2026-11-01T00:05:30Z",
+  "policy_change_observed": false,
+  "host": {
+    "schema_version": "1.0",
+    "os": "windows",
+    "edition": "Synthetic training edition",
+    "build": "19045.0",
+    "architecture": "x64",
+    "supported_build": false,
+    "hostname": null,
+    "windows_product_type": 1
+  },
+  "completeness": "complete",
+  "sources": [
+    {
+      "source": "host",
+      "state": "complete",
+      "window_start_utc": "2026-11-01T00:00:00Z",
+      "window_end_utc": "2026-11-01T00:10:00Z",
+      "records": 1,
+      "warnings": []
+    },
+    {
+      "source": "profiles",
+      "state": "complete",
+      "window_start_utc": "2026-11-01T00:00:00Z",
+      "window_end_utc": "2026-11-01T00:10:00Z",
+      "records": 3,
+      "warnings": []
+    },
+    {
+      "source": "rules",
+      "state": "complete",
+      "window_start_utc": "2026-11-01T00:00:00Z",
+      "window_end_utc": "2026-11-01T00:10:00Z",
+      "records": 0,
+      "warnings": []
+    },
+    {
+      "source": "events",
+      "state": "complete",
+      "window_start_utc": "2026-11-01T00:00:00Z",
+      "window_end_utc": "2026-11-01T00:10:00Z",
+      "records": 1,
+      "warnings": []
+    },
+    {
+      "source": "collection-errors",
+      "state": "complete",
+      "window_start_utc": "2026-11-01T00:00:00Z",
+      "window_end_utc": "2026-11-01T00:10:00Z",
+      "records": 0,
+      "warnings": []
+    },
+    {
+      "source": "network",
+      "state": "complete",
+      "window_start_utc": "2026-11-01T00:00:00Z",
+      "window_end_utc": "2026-11-01T00:10:00Z",
+      "records": 1,
+      "warnings": []
+    }
+  ],
+  "files": [
+    {
+      "filename": "host.json",
+      "byte_length": 216,
+      "sha256": "d0f4fdcc02646c7c5511c2c18f2387ca1e3ca0cd177f363c45bc35c35ae3c408"
+    },
+    {
+      "filename": "profiles.json",
+      "byte_length": 889,
+      "sha256": "8818a39a0e8e6a64c8b53c9846d4c095615bc958edb3b3c9136b1fab726b359e"
+    },
+    {
+      "filename": "rules.json",
+      "byte_length": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "filename": "events.ndjson",
+      "byte_length": 598,
+      "sha256": "54bf34bfc53d586112b6a9fd0f88fcf9932996713da3bf2ac35ba503544e0d57"
+    },
+    {
+      "filename": "collection-errors.json",
+      "byte_length": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "filename": "network.json",
+      "byte_length": 317,
+      "sha256": "609c7e9eb3b588a9097d7297df2de01a692a955c354f6427b60d7e29e5aa0538"
+    }
+  ]
+}

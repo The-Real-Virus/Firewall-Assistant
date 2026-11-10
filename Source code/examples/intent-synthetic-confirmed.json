@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "application_path": "C:\\Training\\ExampleApp.exe",
+  "application_identity_confirmed": true,
+  "direction": "inbound",
+  "protocol": "TCP",
+  "profile": "Private",
+  "remote_addresses": [
+    "192.168.56.20/32"
+  ],
+  "local_port": 8765,
+  "remote_port": null,
+  "purpose": "Synthetic training values, replace with independently approved requirements"
+}

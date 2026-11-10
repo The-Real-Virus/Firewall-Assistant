@@ -1,0 +1,317 @@
+{
+  "$defs": {
+    "Direction": {
+      "enum": [
+        "inbound",
+        "outbound",
+        "unknown"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "PolicyConditions": {
+      "additionalProperties": false,
+      "description": "Null means unknown, while an empty tuple means a real empty captured condition.",
+      "properties": {
+        "interface_types": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Interface Types"
+        },
+        "interfaces": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Interfaces"
+        },
+        "local_addresses": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Local Addresses"
+        },
+        "local_ports": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Local Ports"
+        },
+        "programs": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Programs"
+        },
+        "protocols": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Protocols"
+        },
+        "remote_addresses": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Remote Addresses"
+        },
+        "remote_ports": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Remote Ports"
+        },
+        "security": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Security"
+        },
+        "services": {
+          "anyOf": [
+            {
+              "items": {
+                "maxLength": 500,
+                "type": "string"
+              },
+              "maxItems": 100,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Services"
+        }
+      },
+      "required": [
+        "programs",
+        "protocols",
+        "local_ports",
+        "remote_ports",
+        "local_addresses",
+        "remote_addresses",
+        "services",
+        "interfaces",
+        "interface_types",
+        "security"
+      ],
+      "title": "PolicyConditions",
+      "type": "object"
+    },
+    "Profile": {
+      "enum": [
+        "Domain",
+        "Private",
+        "Public"
+      ],
+      "title": "Profile",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "enum": [
+        "Allow",
+        "Block",
+        "unknown"
+      ],
+      "title": "Action",
+      "type": "string"
+    },
+    "conditions": {
+      "$ref": "#/$defs/PolicyConditions"
+    },
+    "direction": {
+      "$ref": "#/$defs/Direction"
+    },
+    "display_name": {
+      "maxLength": 500,
+      "title": "Display Name",
+      "type": "string"
+    },
+    "enabled": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Enabled"
+    },
+    "filter_errors": {
+      "default": [],
+      "items": {
+        "maxLength": 500,
+        "type": "string"
+      },
+      "maxItems": 100,
+      "title": "Filter Errors",
+      "type": "array"
+    },
+    "policy_source": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Policy Source"
+    },
+    "policy_source_type": {
+      "enum": [
+        "local",
+        "GPO",
+        "MDM",
+        "other",
+        "unknown"
+      ],
+      "title": "Policy Source Type",
+      "type": "string"
+    },
+    "profiles": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/Profile"
+          },
+          "maxItems": 3,
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Profiles"
+    },
+    "rule_id": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "title": "Rule Id",
+      "type": "string"
+    },
+    "snapshot_utc": {
+      "format": "date-time",
+      "title": "Snapshot Utc",
+      "type": "string"
+    },
+    "source_ref": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Source Ref",
+      "type": "string"
+    }
+  },
+  "required": [
+    "rule_id",
+    "display_name",
+    "enabled",
+    "action",
+    "direction",
+    "profiles",
+    "policy_source",
+    "policy_source_type",
+    "snapshot_utc",
+    "conditions",
+    "source_ref"
+  ],
+  "title": "Rule",
+  "type": "object"
+}

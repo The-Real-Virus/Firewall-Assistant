@@ -1,0 +1,309 @@
+{
+  "$defs": {
+    "Artifact": {
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "File",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "source_commit": {
+          "pattern": "^[a-f0-9]{40}$",
+          "title": "Source Commit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "file",
+        "sha256",
+        "source_commit"
+      ],
+      "title": "Artifact",
+      "type": "object"
+    },
+    "Proof": {
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "File",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "source_commit": {
+          "pattern": "^[a-f0-9]{40}$",
+          "title": "Source Commit",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "pass",
+            "fail",
+            "blocked"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "actor": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Actor",
+          "type": "string"
+        },
+        "recorded_at_utc": {
+          "format": "date-time",
+          "title": "Recorded At Utc",
+          "type": "string"
+        }
+      },
+      "required": [
+        "file",
+        "sha256",
+        "source_commit",
+        "status",
+        "actor",
+        "recorded_at_utc"
+      ],
+      "title": "Proof",
+      "type": "object"
+    },
+    "TestedSystem": {
+      "additionalProperties": false,
+      "properties": {
+        "windows": {
+          "enum": [
+            "Windows 10",
+            "Windows 11"
+          ],
+          "title": "Windows",
+          "type": "string"
+        },
+        "edition": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Edition",
+          "type": "string"
+        },
+        "build": {
+          "pattern": "^\\d+\\.\\d+$",
+          "title": "Build",
+          "type": "string"
+        },
+        "architecture": {
+          "const": "x64",
+          "title": "Architecture",
+          "type": "string"
+        },
+        "evidence": {
+          "$ref": "#/$defs/Proof"
+        }
+      },
+      "required": [
+        "windows",
+        "edition",
+        "build",
+        "architecture",
+        "evidence"
+      ],
+      "title": "TestedSystem",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "stage": {
+      "enum": [
+        "development",
+        "evaluation",
+        "release_candidate",
+        "release"
+      ],
+      "title": "Stage",
+      "type": "string"
+    },
+    "version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-rc\\.\\d+)?$",
+      "title": "Version",
+      "type": "string"
+    },
+    "source_commit": {
+      "pattern": "^[a-f0-9]{40}$",
+      "title": "Source Commit",
+      "type": "string"
+    },
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/Artifact"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Artifacts",
+      "type": "array"
+    },
+    "locks": {
+      "additionalProperties": {
+        "pattern": "^[a-f0-9]{64}$",
+        "type": "string"
+      },
+      "maxProperties": 3,
+      "minProperties": 3,
+      "propertyNames": {
+        "maxLength": 4096,
+        "minLength": 1
+      },
+      "title": "Locks",
+      "type": "object"
+    },
+    "gates": {
+      "additionalProperties": {
+        "maxLength": 4096,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxProperties": 9,
+      "minProperties": 9,
+      "propertyNames": {
+        "enum": [
+          "G0",
+          "G1",
+          "G2",
+          "G3",
+          "G4",
+          "G5",
+          "G6",
+          "G7",
+          "G8"
+        ]
+      },
+      "title": "Gates",
+      "type": "object"
+    },
+    "tested_systems": {
+      "items": {
+        "$ref": "#/$defs/TestedSystem"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Tested Systems",
+      "type": "array"
+    },
+    "scenarios": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Proof"
+      },
+      "maxProperties": 24,
+      "minProperties": 24,
+      "propertyNames": {
+        "maxLength": 4096,
+        "minLength": 1
+      },
+      "title": "Scenarios",
+      "type": "object"
+    },
+    "support_matrix": {
+      "$ref": "#/$defs/Proof"
+    },
+    "native_validation": {
+      "$ref": "#/$defs/Proof"
+    },
+    "security_review": {
+      "$ref": "#/$defs/Proof"
+    },
+    "packaged_journeys": {
+      "$ref": "#/$defs/Proof"
+    },
+    "performance": {
+      "$ref": "#/$defs/Proof"
+    },
+    "ai_evaluation": {
+      "$ref": "#/$defs/Proof"
+    },
+    "pilot": {
+      "$ref": "#/$defs/Proof"
+    },
+    "handbook": {
+      "$ref": "#/$defs/Proof"
+    },
+    "signing": {
+      "$ref": "#/$defs/Proof"
+    },
+    "owner_decision": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Proof"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "signing_status": {
+      "enum": [
+        "signed",
+        "unsigned"
+      ],
+      "title": "Signing Status",
+      "type": "string"
+    },
+    "known_critical": {
+      "ge": 0,
+      "title": "Known Critical",
+      "type": "integer"
+    },
+    "known_high": {
+      "ge": 0,
+      "title": "Known High",
+      "type": "integer"
+    },
+    "unknown_severity_findings": {
+      "ge": 0,
+      "title": "Unknown Severity Findings",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "stage",
+    "version",
+    "source_commit",
+    "artifacts",
+    "locks",
+    "gates",
+    "tested_systems",
+    "scenarios",
+    "support_matrix",
+    "native_validation",
+    "security_review",
+    "packaged_journeys",
+    "performance",
+    "ai_evaluation",
+    "pilot",
+    "handbook",
+    "signing",
+    "owner_decision",
+    "signing_status",
+    "known_critical",
+    "known_high",
+    "unknown_severity_findings"
+  ],
+  "title": "ReleaseManifest",
+  "type": "object"
+}

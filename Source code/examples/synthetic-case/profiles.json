@@ -1,0 +1,35 @@
+[
+  {
+    "profile": "Domain",
+    "enabled": true,
+    "active": false,
+    "default_inbound": "Block",
+    "default_outbound": "Block",
+    "allow_local_rule_merge": true,
+    "policy_source": "Synthetic local policy",
+    "policy_source_type": "local",
+    "source_ref": "profiles:Domain"
+  },
+  {
+    "profile": "Private",
+    "enabled": true,
+    "active": true,
+    "default_inbound": "Block",
+    "default_outbound": "Block",
+    "allow_local_rule_merge": true,
+    "policy_source": "Synthetic local policy",
+    "policy_source_type": "local",
+    "source_ref": "profiles:Private"
+  },
+  {
+    "profile": "Public",
+    "enabled": true,
+    "active": false,
+    "default_inbound": "Block",
+    "default_outbound": "Block",
+    "allow_local_rule_merge": true,
+    "policy_source": "Synthetic local policy",
+    "policy_source_type": "local",
+    "source_ref": "profiles:Public"
+  }
+]

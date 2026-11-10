@@ -1,0 +1,86 @@
+{
+  "$defs": {
+    "NextStep": {
+      "enum": [
+        "VERIFY_INTENT",
+        "REVIEW_POLICY_OWNER",
+        "COLLECT_APPROVED_EVIDENCE",
+        "REVIEW_WINDOW",
+        "REVIEW_LIMITATIONS",
+        "GLOSSARY_PROFILE",
+        "GLOSSARY_AUDITING"
+      ],
+      "title": "NextStep",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "evidence_refs": {
+      "items": {
+        "pattern": "^[FE][A-Z0-9]{8,24}$",
+        "type": "string"
+      },
+      "maxItems": 5,
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "explanation": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "title": "Explanation",
+      "type": "string"
+    },
+    "finding_refs": {
+      "items": {
+        "pattern": "^[FE][A-Z0-9]{8,24}$",
+        "type": "string"
+      },
+      "maxItems": 5,
+      "title": "Finding Refs",
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "maxLength": 300,
+        "type": "string"
+      },
+      "maxItems": 5,
+      "title": "Limitations",
+      "type": "array"
+    },
+    "next_step_ids": {
+      "items": {
+        "$ref": "#/$defs/NextStep"
+      },
+      "maxItems": 5,
+      "title": "Next Step Ids",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "answered",
+        "insufficient_context",
+        "refused"
+      ],
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "status",
+    "explanation",
+    "finding_refs",
+    "evidence_refs",
+    "next_step_ids",
+    "limitations"
+  ],
+  "title": "Explanation",
+  "type": "object"
+}

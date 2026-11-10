@@ -1,0 +1,438 @@
+{
+  "$defs": {
+    "AnalyzeJob": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_engine_version": {
+          "maxLength": 64,
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:(?:a|b|rc)\\d+|\\.dev\\d+|[-+][A-Za-z0-9.-]+)?$",
+          "title": "Expected Engine Version",
+          "type": "string"
+        },
+        "job_id": {
+          "pattern": "^[A-Za-z0-9-]{1,64}$",
+          "title": "Job Id",
+          "type": "string"
+        },
+        "operation": {
+          "const": "analyze",
+          "title": "Operation",
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/$defs/AnalyzeParameters"
+        },
+        "protocol_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "job_id",
+        "expected_engine_version",
+        "operation",
+        "parameters"
+      ],
+      "title": "AnalyzeJob",
+      "type": "object"
+    },
+    "AnalyzeParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "bundle": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Bundle",
+          "type": "string"
+        },
+        "intent": {
+          "anyOf": [
+            {
+              "maxLength": 4096,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Intent"
+        },
+        "out": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Out",
+          "type": "string"
+        }
+      },
+      "required": [
+        "out",
+        "bundle"
+      ],
+      "title": "AnalyzeParameters",
+      "type": "object"
+    },
+    "CollectJob": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_engine_version": {
+          "maxLength": 64,
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:(?:a|b|rc)\\d+|\\.dev\\d+|[-+][A-Za-z0-9.-]+)?$",
+          "title": "Expected Engine Version",
+          "type": "string"
+        },
+        "job_id": {
+          "pattern": "^[A-Za-z0-9-]{1,64}$",
+          "title": "Job Id",
+          "type": "string"
+        },
+        "operation": {
+          "const": "collect",
+          "title": "Operation",
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/$defs/CollectParameters"
+        },
+        "protocol_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "job_id",
+        "expected_engine_version",
+        "operation",
+        "parameters"
+      ],
+      "title": "CollectJob",
+      "type": "object"
+    },
+    "CollectParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "minutes": {
+          "default": 10,
+          "maximum": 60,
+          "minimum": 1,
+          "title": "Minutes",
+          "type": "integer"
+        },
+        "out": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Out",
+          "type": "string"
+        }
+      },
+      "required": [
+        "out"
+      ],
+      "title": "CollectParameters",
+      "type": "object"
+    },
+    "CompareJob": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_engine_version": {
+          "maxLength": 64,
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:(?:a|b|rc)\\d+|\\.dev\\d+|[-+][A-Za-z0-9.-]+)?$",
+          "title": "Expected Engine Version",
+          "type": "string"
+        },
+        "job_id": {
+          "pattern": "^[A-Za-z0-9-]{1,64}$",
+          "title": "Job Id",
+          "type": "string"
+        },
+        "operation": {
+          "const": "compare",
+          "title": "Operation",
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/$defs/CompareParameters"
+        },
+        "protocol_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "job_id",
+        "expected_engine_version",
+        "operation",
+        "parameters"
+      ],
+      "title": "CompareJob",
+      "type": "object"
+    },
+    "CompareParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "After",
+          "type": "string"
+        },
+        "before": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Before",
+          "type": "string"
+        },
+        "out": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Out",
+          "type": "string"
+        }
+      },
+      "required": [
+        "out",
+        "before",
+        "after"
+      ],
+      "title": "CompareParameters",
+      "type": "object"
+    },
+    "DoctorJob": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_engine_version": {
+          "maxLength": 64,
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:(?:a|b|rc)\\d+|\\.dev\\d+|[-+][A-Za-z0-9.-]+)?$",
+          "title": "Expected Engine Version",
+          "type": "string"
+        },
+        "job_id": {
+          "pattern": "^[A-Za-z0-9-]{1,64}$",
+          "title": "Job Id",
+          "type": "string"
+        },
+        "operation": {
+          "const": "doctor",
+          "title": "Operation",
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/$defs/DoctorParameters"
+        },
+        "protocol_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "job_id",
+        "expected_engine_version",
+        "operation",
+        "parameters"
+      ],
+      "title": "DoctorJob",
+      "type": "object"
+    },
+    "DoctorParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "out": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Out",
+          "type": "string"
+        }
+      },
+      "required": [
+        "out"
+      ],
+      "title": "DoctorParameters",
+      "type": "object"
+    },
+    "ProposeJob": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_engine_version": {
+          "maxLength": 64,
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:(?:a|b|rc)\\d+|\\.dev\\d+|[-+][A-Za-z0-9.-]+)?$",
+          "title": "Expected Engine Version",
+          "type": "string"
+        },
+        "job_id": {
+          "pattern": "^[A-Za-z0-9-]{1,64}$",
+          "title": "Job Id",
+          "type": "string"
+        },
+        "operation": {
+          "const": "propose",
+          "title": "Operation",
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/$defs/ProposeParameters"
+        },
+        "protocol_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "job_id",
+        "expected_engine_version",
+        "operation",
+        "parameters"
+      ],
+      "title": "ProposeJob",
+      "type": "object"
+    },
+    "ProposeParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "analysis": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Analysis",
+          "type": "string"
+        },
+        "finding_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Finding Id",
+          "type": "string"
+        },
+        "intent": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Intent",
+          "type": "string"
+        },
+        "out": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Out",
+          "type": "string"
+        }
+      },
+      "required": [
+        "out",
+        "analysis",
+        "finding_id",
+        "intent"
+      ],
+      "title": "ProposeParameters",
+      "type": "object"
+    },
+    "ReportJob": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_engine_version": {
+          "maxLength": 64,
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:(?:a|b|rc)\\d+|\\.dev\\d+|[-+][A-Za-z0-9.-]+)?$",
+          "title": "Expected Engine Version",
+          "type": "string"
+        },
+        "job_id": {
+          "pattern": "^[A-Za-z0-9-]{1,64}$",
+          "title": "Job Id",
+          "type": "string"
+        },
+        "operation": {
+          "const": "report",
+          "title": "Operation",
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/$defs/ReportParameters"
+        },
+        "protocol_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Protocol Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "job_id",
+        "expected_engine_version",
+        "operation",
+        "parameters"
+      ],
+      "title": "ReportJob",
+      "type": "object"
+    },
+    "ReportParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "analysis": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Analysis",
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "share",
+            "full"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "out": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Out",
+          "type": "string"
+        }
+      },
+      "required": [
+        "out",
+        "analysis",
+        "mode"
+      ],
+      "title": "ReportParameters",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "analyze": "#/$defs/AnalyzeJob",
+      "collect": "#/$defs/CollectJob",
+      "compare": "#/$defs/CompareJob",
+      "doctor": "#/$defs/DoctorJob",
+      "propose": "#/$defs/ProposeJob",
+      "report": "#/$defs/ReportJob"
+    },
+    "propertyName": "operation"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/DoctorJob"
+    },
+    {
+      "$ref": "#/$defs/CollectJob"
+    },
+    {
+      "$ref": "#/$defs/AnalyzeJob"
+    },
+    {
+      "$ref": "#/$defs/ReportJob"
+    },
+    {
+      "$ref": "#/$defs/ProposeJob"
+    },
+    {
+      "$ref": "#/$defs/CompareJob"
+    }
+  ]
+}

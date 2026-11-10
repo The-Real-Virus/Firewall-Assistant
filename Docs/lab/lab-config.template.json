@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "vm_name": null,
+  "computer_name": null,
+  "windows_build": null,
+  "edition_id": null,
+  "snapshot_id": null,
+  "isolated_network_verified": false,
+  "interface_index": null,
+  "local_address": null,
+  "peer_address": null,
+  "profile": null,
+  "alternate_profile": null,
+  "direction": null,
+  "port": null,
+  "fixture_exe": null,
+  "fixture_sha256": null,
+  "case_root": null,
+  "rule_prefix": "WFDiagLab"
+}

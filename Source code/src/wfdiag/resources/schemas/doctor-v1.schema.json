@@ -1,0 +1,233 @@
+{
+  "$defs": {
+    "Capability": {
+      "additionalProperties": false,
+      "properties": {
+        "explanation": {
+          "maxLength": 500,
+          "title": "Explanation",
+          "type": "string"
+        },
+        "name": {
+          "enum": [
+            "powershell_51",
+            "netsecurity",
+            "security_events",
+            "audit_visibility",
+            "private_output"
+          ],
+          "title": "Name",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "supported",
+            "unavailable",
+            "denied",
+            "unknown"
+          ],
+          "title": "State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "state",
+        "explanation"
+      ],
+      "title": "Capability",
+      "type": "object"
+    },
+    "Host": {
+      "additionalProperties": false,
+      "properties": {
+        "architecture": {
+          "enum": [
+            "x64",
+            "arm64",
+            "x86",
+            "unknown"
+          ],
+          "title": "Architecture",
+          "type": "string"
+        },
+        "build": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Build"
+        },
+        "edition": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Edition"
+        },
+        "hostname": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hostname"
+        },
+        "os": {
+          "enum": [
+            "windows",
+            "linux",
+            "darwin",
+            "unknown"
+          ],
+          "title": "Os",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "supported_build": {
+          "title": "Supported Build",
+          "type": "boolean"
+        },
+        "windows_product_type": {
+          "anyOf": [
+            {
+              "enum": [
+                1,
+                2,
+                3
+              ],
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Windows Product Type"
+        }
+      },
+      "required": [
+        "os",
+        "edition",
+        "build",
+        "architecture",
+        "supported_build"
+      ],
+      "title": "Host",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "administrator_token": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Administrator Token"
+    },
+    "audit_raw": {
+      "anyOf": [
+        {
+          "maxLength": 4096,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Audit Raw"
+    },
+    "capabilities": {
+      "items": {
+        "$ref": "#/$defs/Capability"
+      },
+      "maxItems": 5,
+      "minItems": 5,
+      "title": "Capabilities",
+      "type": "array"
+    },
+    "checked_at_utc": {
+      "format": "date-time",
+      "title": "Checked At Utc",
+      "type": "string"
+    },
+    "eligible_target": {
+      "title": "Eligible Target",
+      "type": "boolean"
+    },
+    "engine_version": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Engine Version",
+      "type": "string"
+    },
+    "firewall_policy_collected": {
+      "const": false,
+      "default": false,
+      "title": "Firewall Policy Collected",
+      "type": "boolean"
+    },
+    "host": {
+      "$ref": "#/$defs/Host"
+    },
+    "release_certified": {
+      "title": "Release Certified",
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "security_events_collected": {
+      "const": false,
+      "default": false,
+      "title": "Security Events Collected",
+      "type": "boolean"
+    },
+    "support_note": {
+      "maxLength": 500,
+      "title": "Support Note",
+      "type": "string"
+    }
+  },
+  "required": [
+    "engine_version",
+    "checked_at_utc",
+    "host",
+    "eligible_target",
+    "release_certified",
+    "support_note",
+    "administrator_token",
+    "capabilities",
+    "audit_raw"
+  ],
+  "title": "DoctorReport",
+  "type": "object"
+}

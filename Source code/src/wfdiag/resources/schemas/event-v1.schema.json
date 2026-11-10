@@ -1,0 +1,270 @@
+{
+  "$defs": {
+    "Direction": {
+      "enum": [
+        "inbound",
+        "outbound",
+        "unknown"
+      ],
+      "title": "Direction",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "application_canonical": {
+      "anyOf": [
+        {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Application Canonical"
+    },
+    "application_raw": {
+      "anyOf": [
+        {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Application Raw"
+    },
+    "destination_address": {
+      "anyOf": [
+        {
+          "maxLength": 64,
+          "minLength": 2,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Destination Address"
+    },
+    "destination_port": {
+      "anyOf": [
+        {
+          "maximum": 65535,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Destination Port"
+    },
+    "direction": {
+      "$ref": "#/$defs/Direction"
+    },
+    "event_id": {
+      "enum": [
+        5157,
+        5152
+      ],
+      "title": "Event Id",
+      "type": "integer"
+    },
+    "event_version": {
+      "maximum": 255,
+      "minimum": 0,
+      "title": "Event Version",
+      "type": "integer"
+    },
+    "filter_origin": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Filter Origin"
+    },
+    "filter_runtime_id": {
+      "anyOf": [
+        {
+          "maximum": 18446744073709551615,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Filter Runtime Id"
+    },
+    "interface_index": {
+      "anyOf": [
+        {
+          "maximum": 4294967295,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Interface Index"
+    },
+    "pid_raw": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Pid Raw"
+    },
+    "pid_value": {
+      "anyOf": [
+        {
+          "maximum": 4294967295,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Pid Value"
+    },
+    "protocol": {
+      "anyOf": [
+        {
+          "maximum": 255,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Protocol"
+    },
+    "provider": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Provider",
+      "type": "string"
+    },
+    "record_id": {
+      "maximum": 18446744073709551615,
+      "minimum": 0,
+      "title": "Record Id",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_address": {
+      "anyOf": [
+        {
+          "maxLength": 64,
+          "minLength": 2,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Source Address"
+    },
+    "source_port": {
+      "anyOf": [
+        {
+          "maximum": 65535,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Source Port"
+    },
+    "source_ref": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Source Ref",
+      "type": "string"
+    },
+    "timestamp_utc": {
+      "format": "date-time",
+      "title": "Timestamp Utc",
+      "type": "string"
+    },
+    "unknown_fields": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "maxLength": 500,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "maxProperties": 50,
+      "propertyNames": {
+        "maxLength": 128,
+        "minLength": 1
+      },
+      "title": "Unknown Fields",
+      "type": "object"
+    },
+    "warnings": {
+      "default": [],
+      "items": {
+        "maxLength": 500,
+        "type": "string"
+      },
+      "maxItems": 50,
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "event_id",
+    "provider",
+    "record_id",
+    "event_version",
+    "timestamp_utc",
+    "application_raw",
+    "application_canonical",
+    "pid_raw",
+    "pid_value",
+    "direction",
+    "source_address",
+    "source_port",
+    "destination_address",
+    "destination_port",
+    "protocol",
+    "filter_runtime_id",
+    "filter_origin",
+    "interface_index",
+    "source_ref"
+  ],
+  "title": "Event",
+  "type": "object"
+}

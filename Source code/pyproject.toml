@@ -1,0 +1,52 @@
+# Initial Windows x64 / Python3.13 locks are verified; release validation remains separate.
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wfdiag"
+version = "1.0.0rc1"
+description = "Local Windows Firewall diagnostic assistant with optional cloud explanations"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+dependencies = ["pydantic>=2,<3", "defusedxml>=0.7,<1", "Jinja2>=3.1,<4"]
+
+[project.optional-dependencies]
+desktop = ["PySide6-Essentials>=6.8,<6.13"]
+ai = ["httpx>=0.28,<1"]
+desktop-test = ["pytest-qt"]
+dev = [
+  "setuptools>=77", "wheel", "pytest", "pytest-cov", "hypothesis", "ruff", "mypy",
+  "build", "pip-tools", "pip-audit", "types-defusedxml", "pyinstaller; platform_system == 'Windows'",
+]
+
+[project.scripts]
+wfdiag = "wfdiag.cli:main"
+
+[project.gui-scripts]
+firewall-assistant = "wfdiag.gui.launcher:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+wfdiag = ["resources/powershell/*.ps1", "resources/templates/*.j2", "resources/schemas/*.json", "resources/ai/*", "resources/notices.txt", "gui/resources/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers --strict-config"
+markers = [
+  "windows: requires native Windows capabilities",
+  "lab: changes isolated lab state with explicit permission",
+  "packaged: exercises the actual distribution",
+  "live_ai: requires an exact A07 approval and local credential",
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+files = ["src"]

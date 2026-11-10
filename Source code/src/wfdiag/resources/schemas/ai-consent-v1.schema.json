@@ -1,0 +1,61 @@
+{
+  "$defs": {
+    "Provider": {
+      "enum": [
+        "openai",
+        "anthropic",
+        "google"
+      ],
+      "title": "Provider",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "context_revision": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Context Revision",
+      "type": "string"
+    },
+    "model": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+      "title": "Model",
+      "type": "string"
+    },
+    "payload_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "title": "Payload Sha256",
+      "type": "string"
+    },
+    "prompt_version": {
+      "maxLength": 64,
+      "minLength": 1,
+      "title": "Prompt Version",
+      "type": "string"
+    },
+    "provider": {
+      "$ref": "#/$defs/Provider"
+    },
+    "response_schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Response Schema Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "provider",
+    "model",
+    "payload_sha256",
+    "context_revision",
+    "prompt_version"
+  ],
+  "title": "Consent",
+  "type": "object"
+}

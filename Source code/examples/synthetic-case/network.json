@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "observed_at_utc": "2026-11-01T00:05:30Z",
+  "interfaces": [
+    {
+      "interface_index": 7,
+      "name": "Synthetic interface",
+      "addresses": [
+        "192.168.56.10"
+      ],
+      "active_profile": "Private",
+      "state": "up",
+      "source_ref": "network:7"
+    }
+  ]
+}

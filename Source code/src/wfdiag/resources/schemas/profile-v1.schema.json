@@ -1,0 +1,112 @@
+{
+  "$defs": {
+    "Profile": {
+      "enum": [
+        "Domain",
+        "Private",
+        "Public"
+      ],
+      "title": "Profile",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "active": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Active"
+    },
+    "allow_local_rule_merge": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Allow Local Rule Merge"
+    },
+    "default_inbound": {
+      "enum": [
+        "Allow",
+        "Block",
+        "unknown"
+      ],
+      "title": "Default Inbound",
+      "type": "string"
+    },
+    "default_outbound": {
+      "enum": [
+        "Allow",
+        "Block",
+        "unknown"
+      ],
+      "title": "Default Outbound",
+      "type": "string"
+    },
+    "enabled": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Enabled"
+    },
+    "policy_source": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Policy Source"
+    },
+    "policy_source_type": {
+      "default": "unknown",
+      "enum": [
+        "local",
+        "GPO",
+        "MDM",
+        "other",
+        "unknown"
+      ],
+      "title": "Policy Source Type",
+      "type": "string"
+    },
+    "profile": {
+      "$ref": "#/$defs/Profile"
+    },
+    "source_ref": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Source Ref",
+      "type": "string"
+    }
+  },
+  "required": [
+    "profile",
+    "enabled",
+    "active",
+    "default_inbound",
+    "default_outbound",
+    "allow_local_rule_merge",
+    "source_ref"
+  ],
+  "title": "FirewallProfile",
+  "type": "object"
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Firewall diagnostic report</title>
+<style>
+:root { color-scheme: light; font-family: "Segoe UI", system-ui, sans-serif; color: #15253b; background: #edf2f7; }
+body { margin: 0 auto; max-width: 1080px; padding: 24px; line-height: 1.55; }
+h1 { font-size: 2rem; line-height: 1.2; } h2 { font-size: 1.35rem; } h3 { font-size: 1.1rem; }
+section, aside { background: white; border: 1px solid #65778e; border-radius: 8px; padding: 20px; margin: 18px 0; }
+aside { border-left: 5px solid #926000; } .muted { color: #45566b; }
+table { border-collapse: collapse; width: 100%; } th, td { text-align: left; padding: 10px; border-bottom: 1px solid #65778e; vertical-align: top; }
+dt { font-weight: 650; margin-top: 10px; } dd { margin-left: 0; }
+pre, dd, li, p, td { white-space: normal; overflow-wrap: anywhere; } pre { white-space: pre-wrap; }
+.tag { display: inline-block; padding: 3px 8px; border: 1px solid #65778e; border-radius: 4px; margin: 2px; }
+@media (max-width: 600px) { body { padding: 12px; } section, aside { padding: 14px; } th, td { padding: 6px; } }
+@media print { :root { background: white; } body { max-width: none; } section { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header><p class="muted">WINDOWS FIREWALL TROUBLESHOOTING ASSISTANT</p><h1>Diagnostic report</h1><p>Mode: <strong>{{ mode }}</strong> · Source completeness: <strong>{{ data.completeness }}</strong></p></header>
+<aside aria-label="Review notice">
+{% if mode == 'share' %}
+<strong>Review before sharing.</strong> This derivative omits raw evidence, identities, addresses, exact times and all free text. Random aliases preserve limited correlation. Pseudonyms do not guarantee anonymity. Consult the private report for complete reasoning.
+{% else %}
+<strong>Private report.</strong> This copy can contain application paths, addresses and operator text. Keep it in approved private storage. Use a separately generated share report for external review.
+{% endif %}
+<p>Findings describe captured evidence. No relevant event does not establish a healthy network. Proposals are review data and never execute firewall changes.</p>
+</aside>
+<main>
+<section aria-labelledby="sources"><h2 id="sources">Source status</h2><table><thead><tr><th scope="col">Source</th><th scope="col">State</th><th scope="col">Warnings</th></tr></thead><tbody>
+{% for s in data.sources %}<tr><th scope="row">{{ s.source }}</th><td>{{ s.state }}</td><td>{% if mode == 'share' %}{{ 'Present; private details omitted' if s.warnings_present else 'None recorded' }}{% else %}{{ s.warnings | join('; ') if s.warnings else 'None recorded' }}{% endif %}</td></tr>{% endfor %}
+</tbody></table></section>
+{% for f in data.findings %}
+<section aria-labelledby="finding-{{ loop.index }}"><h2 id="finding-{{ loop.index }}">{{ f.finding_alias if mode == 'share' else f.finding_id }}</h2>
+<p><span class="tag">{{ f.category }}</span> <span class="tag">Grade: {{ f.evidence_grade }}</span> <span class="tag">Relevance: {{ f.relevance }}</span></p>
+<h3>{{ summaries[f.category] if mode == 'share' else f.summary }}</h3>
+{% if mode == 'full' %}<p>{{ f.observation }}</p>{% endif %}
+<dl><dt>Proposal eligibility</dt><dd>{{ 'Eligible for separate review' if f.proposal_eligible else 'Withheld' }}</dd><dt>Refusal codes</dt><dd>{{ f.refusal_codes | join('; ') if f.refusal_codes else 'None recorded' }}</dd><dt>Evidence {{ 'aliases' if mode == 'share' else 'references' }}</dt><dd>{{ (f.evidence_aliases if mode == 'share' else f.evidence_refs) | join('; ') }}</dd><dt>Next diagnostic steps</dt><dd>{{ f.next_steps | join('; ') }}</dd></dl>
+{% if mode == 'full' %}
+<h3>Limitations</h3><ul>{% for text in f.limitations %}<li>{{ text }}</li>{% endfor %}</ul>
+<h3>Alternative explanations</h3><ul>{% for text in f.alternative_explanations %}<li>{{ text }}</li>{% endfor %}</ul>
+{% if f.event %}<h3>Captured event facts</h3><pre>{{ event_texts[loop.index0] }}</pre>{% endif %}
+<p>Policy snapshot: {{ f.policy_snapshot_utc if f.policy_snapshot_utc else 'Unknown' }}. Candidates: {{ f.candidate_rules | join('; ') if f.candidate_rules else 'None established' }}.</p>
+{% endif %}</section>
+{% endfor %}
+{% if mode == 'full' and data.intent %}<section><h2>Operator intent</h2><pre>{{ intent_text }}</pre></section>{% endif %}
+{% if mode == 'full' and data.firewall_log %}<section><h2>Optional text-log observations</h2><p>This source does not establish application identity. Unknown wall-clock time is not UTC and is not correlated by guesswork.</p><pre>{% for chunk in text_log_chunks %}{{ chunk }}{% endfor %}</pre></section>{% endif %}
+{% if mode == 'share' %}<section><h2>Excluded information</h2><ul>{% for item in data.excluded %}<li>{{ item }}</li>{% endfor %}</ul></section>{% endif %}
+</main><footer><p class="muted">Local static report · no scripts, remote assets or executable change payload.</p></footer>
+</body></html>

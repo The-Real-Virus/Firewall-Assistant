@@ -1,0 +1,104 @@
+{
+  "$defs": {
+    "Profile": {
+      "enum": [
+        "Domain",
+        "Private",
+        "Public"
+      ],
+      "title": "Profile",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "application_identity_confirmed": {
+      "title": "Application Identity Confirmed",
+      "type": "boolean"
+    },
+    "application_path": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "title": "Application Path",
+      "type": "string"
+    },
+    "direction": {
+      "enum": [
+        "inbound",
+        "outbound"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "local_port": {
+      "anyOf": [
+        {
+          "maximum": 65535,
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Local Port"
+    },
+    "profile": {
+      "$ref": "#/$defs/Profile"
+    },
+    "protocol": {
+      "const": "TCP",
+      "title": "Protocol",
+      "type": "string"
+    },
+    "purpose": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Purpose",
+      "type": "string"
+    },
+    "remote_addresses": {
+      "items": {
+        "maxLength": 80,
+        "minLength": 2,
+        "type": "string"
+      },
+      "maxItems": 16,
+      "minItems": 1,
+      "title": "Remote Addresses",
+      "type": "array"
+    },
+    "remote_port": {
+      "anyOf": [
+        {
+          "maximum": 65535,
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Remote Port"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "application_path",
+    "application_identity_confirmed",
+    "direction",
+    "protocol",
+    "profile",
+    "remote_addresses",
+    "local_port",
+    "remote_port",
+    "purpose"
+  ],
+  "title": "Intent",
+  "type": "object"
+}

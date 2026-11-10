@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "os": "windows",
+  "edition": "Synthetic training edition",
+  "build": "19045.0",
+  "architecture": "x64",
+  "supported_build": false,
+  "hostname": null,
+  "windows_product_type": 1
+}
