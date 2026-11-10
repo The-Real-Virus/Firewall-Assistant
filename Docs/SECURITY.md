@@ -4,4 +4,4 @@ Use GitHub's private vulnerability reporting option if it is available for this 
 
 Keep real cases, Security logs, private reports, API keys, and credentials out of public issues. The portable V1.0 build is unsigned.  
 
-Docs/evidence/v1-handoff-20261109.md
+[Validation](Docs/evidence/v1-handoff-20261109.md)  
